@@ -1,0 +1,3364 @@
+﻿1
+00:00:00,000 --> 00:00:31,130
+oh yeah
+
+2
+00:00:31,130 --> 00:00:33,809
+give me six reasons why software bellman
+
+3
+00:00:33,809 --> 00:00:35,880
+doesn't suck so you can't do it
+
+4
+00:00:35,880 --> 00:00:40,079
+everybody agrees it's off and there's a
+
+5
+00:00:40,079 --> 00:00:41,850
+lot of reasons for this one is like
+
+6
+00:00:41,850 --> 00:00:43,980
+technical getting computers to do what
+
+7
+00:00:43,980 --> 00:00:45,840
+you want them to do can be very
+
+8
+00:00:45,840 --> 00:00:49,649
+difficult but mostly it's humans humans
+
+9
+00:00:49,649 --> 00:00:51,600
+are really strange people you're gonna
+
+10
+00:00:51,600 --> 00:00:53,219
+deal with like managers you gotta do
+
+11
+00:00:53,219 --> 00:00:55,260
+with meeting scheduling deadlines all
+
+12
+00:00:55,260 --> 00:00:57,030
+this stuff and that's really what makes
+
+13
+00:00:57,030 --> 00:01:00,570
+software development tricky it becomes
+
+14
+00:01:00,570 --> 00:01:02,280
+sort of a problem to have to deal with
+
+15
+00:01:02,280 --> 00:01:03,660
+all this sort of stuff and people have
+
+16
+00:01:03,660 --> 00:01:05,640
+come up with ways to deal with this as
+
+17
+00:01:05,640 --> 00:01:06,360
+best as they can
+
+18
+00:01:06,360 --> 00:01:08,610
+these are things with you know agile
+
+19
+00:01:08,610 --> 00:01:12,270
+waterfall pair programming BDD TDD all
+
+20
+00:01:12,270 --> 00:01:13,799
+that stuff whatever is popular at that
+
+21
+00:01:13,799 --> 00:01:15,630
+given moment and I've tried all of them
+
+22
+00:01:15,630 --> 00:01:17,729
+and if they're work for you that's great
+
+23
+00:01:17,729 --> 00:01:20,189
+the software development is hard but for
+
+24
+00:01:20,189 --> 00:01:24,829
+those of us
+
+25
+00:01:24,829 --> 00:01:28,020
+okay for those of us who don't buy into
+
+26
+00:01:28,020 --> 00:01:30,869
+the whole agile stuff it sucks because I
+
+27
+00:01:30,869 --> 00:01:33,000
+want to do that guy who's really into
+
+28
+00:01:33,000 --> 00:01:34,920
+their process and into their workflow
+
+29
+00:01:34,920 --> 00:01:36,659
+because if you're gonna identify with
+
+30
+00:01:36,659 --> 00:01:37,950
+something that works really well for you
+
+31
+00:01:37,950 --> 00:01:41,369
+that's amazing and for the longest time
+
+32
+00:01:41,369 --> 00:01:43,439
+I thought I was just weird I still do
+
+33
+00:01:43,439 --> 00:01:46,350
+and I just you know I wanted something
+
+34
+00:01:46,350 --> 00:01:48,810
+that really worked well for me and I
+
+35
+00:01:48,810 --> 00:01:51,060
+think to the point the last year or two
+
+36
+00:01:51,060 --> 00:01:54,509
+at github we've sort of come down and
+
+37
+00:01:54,509 --> 00:01:56,189
+figured our development process that is
+
+38
+00:01:56,189 --> 00:01:57,869
+really interesting it doesn't feel like
+
+39
+00:01:57,869 --> 00:01:59,909
+process it's really quick it's really
+
+40
+00:01:59,909 --> 00:02:00,569
+fast
+
+41
+00:02:00,569 --> 00:02:02,700
+it scales really well and that's why I
+
+42
+00:02:02,700 --> 00:02:04,979
+want to talk about today so this is not
+
+43
+00:02:04,979 --> 00:02:07,349
+the Safari all sort of this this is how
+
+44
+00:02:07,349 --> 00:02:10,380
+again it uses github to build github the
+
+45
+00:02:10,380 --> 00:02:12,480
+secret here is that this isn't really
+
+46
+00:02:12,480 --> 00:02:15,720
+about github online I used to get up
+
+47
+00:02:15,720 --> 00:02:17,069
+three times in the title so it's sort of
+
+48
+00:02:17,069 --> 00:02:19,319
+blog github but what I mean by that is
+
+49
+00:02:19,319 --> 00:02:21,380
+that this is not about github the tool
+
+50
+00:02:21,380 --> 00:02:24,090
+you know I'll talk about get up the tool
+
+51
+00:02:24,090 --> 00:02:26,549
+because it's easy to use it as an
+
+52
+00:02:26,549 --> 00:02:27,870
+example for stuff but I really want to
+
+53
+00:02:27,870 --> 00:02:29,549
+talk about our workflow our process and
+
+54
+00:02:29,549 --> 00:02:31,500
+how we use our tools and come and choose
+
+55
+00:02:31,500 --> 00:02:33,569
+our schools and why that makes for a
+
+56
+00:02:33,569 --> 00:02:36,060
+really fun development environment so I
+
+57
+00:02:36,060 --> 00:02:37,260
+don't think this is really about github
+
+58
+00:02:37,260 --> 00:02:38,760
+if I work for Twitter I would give the
+
+59
+00:02:38,760 --> 00:02:40,440
+same talk about work for Facebook I want
+
+60
+00:02:40,440 --> 00:02:42,870
+to get the same talk I want this to be a
+
+61
+00:02:42,870 --> 00:02:45,569
+talk for making you think about how your
+
+62
+00:02:45,569 --> 00:02:47,819
+company can use the processes and
+
+63
+00:02:47,819 --> 00:02:49,709
+workflows that we use to improve your
+
+64
+00:02:49,709 --> 00:02:50,780
+own product
+
+65
+00:02:50,780 --> 00:02:53,190
+so I'm Zach Coleman a woman on Twitter a
+
+66
+00:02:53,190 --> 00:02:55,790
+moment I get hub I do work for github
+
+67
+00:02:55,790 --> 00:03:01,109
+it's a social coding site I'm employee
+
+68
+00:03:01,109 --> 00:03:02,250
+number nine so I've been there for about
+
+69
+00:03:02,250 --> 00:03:05,400
+a year and a half now and we're now 46
+
+70
+00:03:05,400 --> 00:03:08,220
+47 employees so we've grown a lot and
+
+71
+00:03:08,220 --> 00:03:11,099
+I've been able to be there for a year
+
+72
+00:03:11,099 --> 00:03:12,720
+and a half and see what hasn't worked
+
+73
+00:03:12,720 --> 00:03:14,099
+out for us how we've changed our
+
+74
+00:03:14,099 --> 00:03:16,200
+workflow and more importantly what has
+
+75
+00:03:16,200 --> 00:03:17,430
+worked for us what assumptions have
+
+76
+00:03:17,430 --> 00:03:18,900
+remained in beginning that we've been
+
+77
+00:03:18,900 --> 00:03:22,109
+able to keep with us the entire time so
+
+78
+00:03:22,109 --> 00:03:23,459
+first of all I want to talk about a
+
+79
+00:03:23,459 --> 00:03:25,500
+little bit about how we work otherwise
+
+80
+00:03:25,500 --> 00:03:28,489
+this talk will probably sound the same
+
+81
+00:03:28,489 --> 00:03:30,900
+the big part of what we do is we work
+
+82
+00:03:30,900 --> 00:03:31,620
+asynchronously
+
+83
+00:03:31,620 --> 00:03:33,840
+so what does this actually mean I look
+
+84
+00:03:33,840 --> 00:03:35,190
+this up in a dictionary
+
+85
+00:03:35,190 --> 00:03:36,750
+and I said you can do without
+
+86
+00:03:36,750 --> 00:03:38,280
+needing to pull me out of this element
+
+87
+00:03:38,280 --> 00:03:44,600
+I read real edgy dictionaries but it's
+
+88
+00:03:44,600 --> 00:03:46,470
+what's so important for us is that
+
+89
+00:03:46,470 --> 00:03:48,330
+getting people in the zone is really
+
+90
+00:03:48,330 --> 00:03:50,130
+important this is the difference between
+
+91
+00:03:50,130 --> 00:03:53,100
+going to work and you're not in the zone
+
+92
+00:03:53,100 --> 00:03:54,390
+and you're trying to constantly battle
+
+93
+00:03:54,390 --> 00:03:56,550
+and try to you know force yourself to
+
+94
+00:03:56,550 --> 00:03:58,590
+write code and it's one of those cases
+
+95
+00:03:58,590 --> 00:04:01,380
+where you know throwing hours at the
+
+96
+00:04:01,380 --> 00:04:03,300
+problem doesn't solve things with
+
+97
+00:04:03,300 --> 00:04:05,280
+software development you want to be in
+
+98
+00:04:05,280 --> 00:04:06,600
+the zone because when you're in the zone
+
+99
+00:04:06,600 --> 00:04:09,030
+you can do as much an hour as you can
+
+100
+00:04:09,030 --> 00:04:11,190
+you know 20 hours out of the sounds so
+
+101
+00:04:11,190 --> 00:04:12,750
+we want to get more people in the zone
+
+102
+00:04:12,750 --> 00:04:15,390
+or our employees as much as possible and
+
+103
+00:04:15,390 --> 00:04:17,400
+do that we have no meetings no deadlines
+
+104
+00:04:17,400 --> 00:04:20,070
+no managers which is you know kind of
+
+105
+00:04:20,070 --> 00:04:24,870
+insane you can do it to fire all the
+
+106
+00:04:24,870 --> 00:04:31,290
+managers it's it goes back to this
+
+107
+00:04:31,290 --> 00:04:33,930
+really works for us it's a very fun
+
+108
+00:04:33,930 --> 00:04:36,360
+place to work because it gives people in
+
+109
+00:04:36,360 --> 00:04:38,040
+the zone as much as possible so what
+
+110
+00:04:38,040 --> 00:04:39,690
+does that what do I mean by that one
+
+111
+00:04:39,690 --> 00:04:41,640
+chatrooms we do everything in chat room
+
+112
+00:04:41,640 --> 00:04:43,140
+this sort of stems from one get up as a
+
+113
+00:04:43,140 --> 00:04:45,000
+three-person company and did everything
+
+114
+00:04:45,000 --> 00:04:46,410
+online we didn't have an office for the
+
+115
+00:04:46,410 --> 00:04:50,070
+first too much years and this really
+
+116
+00:04:50,070 --> 00:04:51,780
+bring it's through everything if it's
+
+117
+00:04:51,780 --> 00:04:53,310
+you and me at the office at 2:00 in the
+
+118
+00:04:53,310 --> 00:04:55,020
+morning no one else is around we're at
+
+119
+00:04:55,020 --> 00:04:56,970
+the same table we're still going to talk
+
+120
+00:04:56,970 --> 00:04:59,640
+in the chat room the reason for that is
+
+121
+00:04:59,640 --> 00:05:01,890
+that personally it lets everybody see
+
+122
+00:05:01,890 --> 00:05:03,360
+what's going on there's a lot more
+
+123
+00:05:03,360 --> 00:05:05,580
+visibility in the company I can go out
+
+124
+00:05:05,580 --> 00:05:06,060
+to lunch
+
+125
+00:05:06,060 --> 00:05:09,360
+I can go to Kansas City and when I come
+
+126
+00:05:09,360 --> 00:05:11,700
+back whenever I got internet I can see
+
+127
+00:05:11,700 --> 00:05:13,050
+exactly what happened the company in the
+
+128
+00:05:13,050 --> 00:05:14,460
+specific areas and it's a much easier
+
+129
+00:05:14,460 --> 00:05:16,860
+way of like letting everybody get
+
+130
+00:05:16,860 --> 00:05:18,510
+involved and there's no more secret
+
+131
+00:05:18,510 --> 00:05:20,820
+projects where only oh that guy knows
+
+132
+00:05:20,820 --> 00:05:22,410
+that project you'll have to talk to him
+
+133
+00:05:22,410 --> 00:05:31,870
+and arrange a time because that sucks
+
+134
+00:05:31,870 --> 00:05:37,570
+yes it depends so as an aside we have a
+
+135
+00:05:37,570 --> 00:05:38,800
+bunch of campfire rooms we have like
+
+136
+00:05:38,800 --> 00:05:41,080
+twenty or thirty now I don't read the
+
+137
+00:05:41,080 --> 00:05:42,610
+danger room because that's all the enemy
+
+138
+00:05:42,610 --> 00:05:44,710
+to gist and cubot reign supreme
+
+139
+00:05:44,710 --> 00:05:47,080
+that's insane but specific ones where
+
+140
+00:05:47,080 --> 00:05:48,190
+I'm really involved with like you don't
+
+141
+00:05:48,190 --> 00:05:49,690
+have enterprise I'll go back and read
+
+142
+00:05:49,690 --> 00:05:51,400
+the transcript from the last few days
+
+143
+00:05:51,400 --> 00:05:53,350
+and stuff like that we want to break out
+
+144
+00:05:53,350 --> 00:05:54,789
+as much as possible in separate groups
+
+145
+00:05:54,789 --> 00:05:56,500
+and then it becomes much more manageable
+
+146
+00:05:56,500 --> 00:06:00,039
+to see what's going on and your domain
+
+147
+00:06:00,039 --> 00:06:03,699
+of responsibilities and then lastly time
+
+148
+00:06:03,699 --> 00:06:05,080
+flexibility work when you want to work
+
+149
+00:06:05,080 --> 00:06:06,880
+this is really important we have a lot
+
+150
+00:06:06,880 --> 00:06:08,680
+of people coming in the office at like
+
+151
+00:06:08,680 --> 00:06:10,210
+6:00 in the morning that's definitely
+
+152
+00:06:10,210 --> 00:06:12,550
+not me because I'm not productive at
+
+153
+00:06:12,550 --> 00:06:14,370
+that point like we want people to be
+
+154
+00:06:14,370 --> 00:06:17,770
+productive as much as they can and some
+
+155
+00:06:17,770 --> 00:06:19,000
+people are super productive in the
+
+156
+00:06:19,000 --> 00:06:20,229
+morning and they cannot assume work at
+
+157
+00:06:20,229 --> 00:06:21,340
+night and that's cool
+
+158
+00:06:21,340 --> 00:06:25,270
+I'm totally the opposite and mandating
+
+159
+00:06:25,270 --> 00:06:26,470
+that you have to come in a certain time
+
+160
+00:06:26,470 --> 00:06:28,000
+and leave those a certain time just
+
+161
+00:06:28,000 --> 00:06:30,490
+damages that this brings people out of
+
+162
+00:06:30,490 --> 00:06:33,880
+the zone so I wrote about this three
+
+163
+00:06:33,880 --> 00:06:34,990
+parts and stuff you want to check that
+
+164
+00:06:34,990 --> 00:06:37,419
+out you can but I want to get on to
+
+165
+00:06:37,419 --> 00:06:39,760
+actual other stuff let's talk about flow
+
+166
+00:06:39,760 --> 00:06:41,560
+requested branching I think this is a
+
+167
+00:06:41,560 --> 00:06:43,150
+huge part of what github of course as
+
+168
+00:06:43,150 --> 00:06:44,979
+well as we do I'll talk about issues I
+
+169
+00:06:44,979 --> 00:06:46,419
+want to talk about OAuth is identity
+
+170
+00:06:46,419 --> 00:06:51,789
+hooks and hewlet and secrets so first we
+
+171
+00:06:51,789 --> 00:06:54,729
+request some branching this is sort of
+
+172
+00:06:54,729 --> 00:06:57,010
+the most interesting part of github I
+
+173
+00:06:57,010 --> 00:06:59,889
+think you guys have really weird
+
+174
+00:06:59,889 --> 00:07:02,229
+branches and I see the support requests
+
+175
+00:07:02,229 --> 00:07:04,090
+come in and someone has detailed their
+
+176
+00:07:04,090 --> 00:07:06,340
+process and like your job just kind of
+
+177
+00:07:06,340 --> 00:07:08,050
+troughs each paragraph like how do you
+
+178
+00:07:08,050 --> 00:07:10,570
+work in this fashion and like about this
+
+179
+00:07:10,570 --> 00:07:12,849
+I mean like there's one company I saw
+
+180
+00:07:12,849 --> 00:07:15,070
+was a master branch makes sense then
+
+181
+00:07:15,070 --> 00:07:16,570
+they cut a deploy branch every time they
+
+182
+00:07:16,570 --> 00:07:18,580
+wanted to deploy makes sense but then
+
+183
+00:07:18,580 --> 00:07:19,990
+they just cut a deployed branch off of
+
+184
+00:07:19,990 --> 00:07:22,330
+each individual deploy branch so by the
+
+185
+00:07:22,330 --> 00:07:23,949
+end of this you have no idea where the
+
+186
+00:07:23,949 --> 00:07:24,490
+hell you are
+
+187
+00:07:24,490 --> 00:07:26,860
+this is just insane it's overly
+
+188
+00:07:26,860 --> 00:07:28,180
+complicated you don't need to do this
+
+189
+00:07:28,180 --> 00:07:32,080
+stuff more likely I see this a lot in
+
+190
+00:07:32,080 --> 00:07:34,210
+large enterprise companies you have a
+
+191
+00:07:34,210 --> 00:07:36,400
+repository that you work on then you
+
+192
+00:07:36,400 --> 00:07:36,800
+have a group
+
+193
+00:07:36,800 --> 00:07:38,180
+trusted developers these are the guys
+
+194
+00:07:38,180 --> 00:07:40,190
+with full rewrite access to the repo and
+
+195
+00:07:40,190 --> 00:07:43,039
+they can do whatever they want and then
+
+196
+00:07:43,039 --> 00:07:50,569
+you have a group this I thought we
+
+197
+00:07:50,569 --> 00:07:51,979
+should be developers because there
+
+198
+00:07:51,979 --> 00:07:53,539
+obviously must be shitty if they put
+
+199
+00:07:53,539 --> 00:07:55,069
+them in this separate side and they only
+
+200
+00:07:55,069 --> 00:07:56,960
+give them read access and they're trying
+
+201
+00:07:56,960 --> 00:07:58,550
+to sell all these arbitrary guidelines
+
+202
+00:07:58,550 --> 00:08:01,490
+it just seems really insane to me so
+
+203
+00:08:01,490 --> 00:08:02,780
+what you have is like they all have to
+
+204
+00:08:02,780 --> 00:08:04,340
+port their own projects from the main
+
+205
+00:08:04,340 --> 00:08:06,050
+repository all those Forks that have to
+
+206
+00:08:06,050 --> 00:08:08,120
+go back to the trust developers for them
+
+207
+00:08:08,120 --> 00:08:09,530
+to figure out okay is this good to go
+
+208
+00:08:09,530 --> 00:08:11,240
+back in the real repository it's not
+
+209
+00:08:11,240 --> 00:08:13,009
+making us image the Shiva lovers and
+
+210
+00:08:13,009 --> 00:08:14,210
+then they pulled on new changes to the
+
+211
+00:08:14,210 --> 00:08:16,969
+repository if you see a chart like this
+
+212
+00:08:16,969 --> 00:08:18,349
+in your organisation's something is
+
+213
+00:08:18,349 --> 00:08:22,659
+ up keep your branches simple I
+
+214
+00:08:22,659 --> 00:08:24,680
+think this is really important this is
+
+215
+00:08:24,680 --> 00:08:27,379
+fundamentally important this is sort of
+
+216
+00:08:27,379 --> 00:08:28,669
+the foundation where you build your
+
+217
+00:08:28,669 --> 00:08:41,180
+product all right no controlling you
+
+218
+00:08:41,180 --> 00:08:53,360
+know you mean the stuff I was going to
+
+219
+00:08:53,360 --> 00:09:08,740
+cover in the next minute
+
+220
+00:09:08,740 --> 00:09:17,120
+you know so keep your branches simple
+
+221
+00:09:17,120 --> 00:09:19,850
+branches should be simple let's talk
+
+222
+00:09:19,850 --> 00:09:20,990
+about how we do branching because I
+
+223
+00:09:20,990 --> 00:09:22,910
+think obviously we have a perfect
+
+224
+00:09:22,910 --> 00:09:26,569
+branching situation here document what
+
+225
+00:09:26,569 --> 00:09:28,639
+we have is a master branch and then we
+
+226
+00:09:28,639 --> 00:09:29,959
+have a branch where you work on a bug
+
+227
+00:09:29,959 --> 00:09:32,689
+fix or a feature or anything like that
+
+228
+00:09:32,689 --> 00:09:34,250
+when you're done with that that goes a
+
+229
+00:09:34,250 --> 00:09:37,069
+master this is it that's the entire
+
+230
+00:09:37,069 --> 00:09:39,230
+branching strategy we don't really
+
+231
+00:09:39,230 --> 00:09:40,970
+branch off with separate branches or do
+
+232
+00:09:40,970 --> 00:09:42,949
+anything more complex than this and it
+
+233
+00:09:42,949 --> 00:09:44,689
+becomes a lot easier to bring out
+
+234
+00:09:44,689 --> 00:09:46,220
+somebody new and just sail where you cut
+
+235
+00:09:46,220 --> 00:09:48,139
+a branch when that's ready to go in push
+
+236
+00:09:48,139 --> 00:09:51,560
+the master along with that every push
+
+237
+00:09:51,560 --> 00:09:53,779
+everyone deploy our designer on their
+
+238
+00:09:53,779 --> 00:09:57,199
+first day can deploy to github we have a
+
+239
+00:09:57,199 --> 00:10:00,019
+lot of automation surrounding 2.2 the
+
+240
+00:10:00,019 --> 00:10:02,839
+50-plus servers we have now and that's
+
+241
+00:10:02,839 --> 00:10:04,600
+good we want people to have
+
+242
+00:10:04,600 --> 00:10:06,800
+responsibility over the code that they
+
+243
+00:10:06,800 --> 00:10:09,139
+actually write too many times you have
+
+244
+00:10:09,139 --> 00:10:10,490
+something more like a release manager
+
+245
+00:10:10,490 --> 00:10:11,779
+where you push it with a really release
+
+246
+00:10:11,779 --> 00:10:14,180
+manager and then that becomes their
+
+247
+00:10:14,180 --> 00:10:15,980
+responsibility for the stuff we want
+
+248
+00:10:15,980 --> 00:10:17,269
+people who write the stuff to be
+
+249
+00:10:17,269 --> 00:10:19,730
+responsible this also frees yourself up
+
+250
+00:10:19,730 --> 00:10:21,019
+from micromanaging other people's code
+
+251
+00:10:21,019 --> 00:10:22,639
+the trust developers in the shade
+
+252
+00:10:22,639 --> 00:10:24,920
+developers part you want people to be
+
+253
+00:10:24,920 --> 00:10:27,500
+responsible for their own code for us
+
+254
+00:10:27,500 --> 00:10:29,269
+master is always employable this is like
+
+255
+00:10:29,269 --> 00:10:31,519
+the one part of rule that is constant at
+
+256
+00:10:31,519 --> 00:10:33,769
+github if you push the master a sua can
+
+257
+00:10:33,769 --> 00:10:37,160
+be deployed as soon as it passes CI the
+
+258
+00:10:37,160 --> 00:10:38,360
+reason we do this is because we deploy
+
+259
+00:10:38,360 --> 00:10:41,089
+10 to 40 times a day we like very short
+
+260
+00:10:41,089 --> 00:10:43,519
+changes and it's something breaks you
+
+261
+00:10:43,519 --> 00:10:45,019
+know exactly what breaks really quickly
+
+262
+00:10:45,019 --> 00:10:47,089
+if you're nervous you employed a staging
+
+263
+00:10:47,089 --> 00:10:48,559
+we have separate staging environment we
+
+264
+00:10:48,559 --> 00:10:50,660
+can also deploy separate branches and
+
+265
+00:10:50,660 --> 00:10:52,430
+test that out and deploy the master
+
+266
+00:10:52,430 --> 00:10:53,149
+afterwards
+
+267
+00:10:53,149 --> 00:10:54,829
+you know so the point of stuff set so if
+
+268
+00:10:54,829 --> 00:10:56,569
+you could say like let me just deploy
+
+269
+00:10:56,569 --> 00:10:58,819
+two boxes right away and see if anything
+
+270
+00:10:58,819 --> 00:11:00,529
+blows up if it doesn't inversion in the
+
+271
+00:11:00,529 --> 00:11:01,089
+master
+
+272
+00:11:01,089 --> 00:11:03,550
+from there this is also sort of Twitter
+
+273
+00:11:03,550 --> 00:11:05,470
+driven development because you guys are
+
+274
+00:11:05,470 --> 00:11:07,959
+way more on top of things than we are
+
+275
+00:11:07,959 --> 00:11:10,240
+sometimes and like people will tweet
+
+276
+00:11:10,240 --> 00:11:12,670
+constantly if something breaks now we
+
+277
+00:11:12,670 --> 00:11:14,470
+have like graphs and stuff we're like
+
+278
+00:11:14,470 --> 00:11:16,600
+you know number of exceptions and then
+
+279
+00:11:16,600 --> 00:11:18,999
+deploy is really marked on the graph and
+
+280
+00:11:18,999 --> 00:11:21,100
+then we mark that against every flies to
+
+281
+00:11:21,100 --> 00:11:22,749
+get love on Twitter and it's actually
+
+282
+00:11:22,749 --> 00:11:25,209
+very proportional to you know you break
+
+283
+00:11:25,209 --> 00:11:27,970
+something people will talk about it so
+
+284
+00:11:27,970 --> 00:11:30,759
+keep your branches simple that's really
+
+285
+00:11:30,759 --> 00:11:32,800
+important I know what you guys are
+
+286
+00:11:32,800 --> 00:11:34,720
+thinking you know what about code
+
+287
+00:11:34,720 --> 00:11:37,269
+equality the other designer in
+
+288
+00:11:37,269 --> 00:11:38,740
+there messing with your code
+
+289
+00:11:38,740 --> 00:11:40,209
+no one likes designers they do weird
+
+290
+00:11:40,209 --> 00:11:42,699
+stuff so we'll how do you keep up code
+
+291
+00:11:42,699 --> 00:11:44,829
+quality and our response to that is pull
+
+292
+00:11:44,829 --> 00:11:47,110
+requests this is central to everything
+
+293
+00:11:47,110 --> 00:11:52,120
+we do pull requests our code review what
+
+294
+00:11:52,120 --> 00:11:55,029
+are Laurie bus tour bus our discussion
+
+295
+00:11:55,029 --> 00:11:57,519
+it's a simple discussion about a piece
+
+296
+00:11:57,519 --> 00:12:01,899
+of code indistinct piece of code it's a
+
+297
+00:12:01,899 --> 00:12:03,370
+discussion about codes just mention
+
+298
+00:12:03,370 --> 00:12:05,170
+about that particular feature discussion
+
+299
+00:12:05,170 --> 00:12:07,389
+about that particular strategy all this
+
+300
+00:12:07,389 --> 00:12:09,009
+stuff comes together you can do a bunch
+
+301
+00:12:09,009 --> 00:12:11,079
+of different stuff to it you can
+
+302
+00:12:11,079 --> 00:12:12,699
+reference issues in it you can reference
+
+303
+00:12:12,699 --> 00:12:14,589
+other bits of code disks in it you can
+
+304
+00:12:14,589 --> 00:12:16,660
+write code comments it's all about
+
+305
+00:12:16,660 --> 00:12:18,370
+figuring out how you make a discussion
+
+306
+00:12:18,370 --> 00:12:19,660
+on piece of code and then from that
+
+307
+00:12:19,660 --> 00:12:21,069
+point you can figure out do you want
+
+308
+00:12:21,069 --> 00:12:22,990
+this in the actual code base all this
+
+309
+00:12:22,990 --> 00:12:24,879
+stuff happens on a separate branch so
+
+310
+00:12:24,879 --> 00:12:26,139
+none of the stuff ends up being
+
+311
+00:12:26,139 --> 00:12:28,209
+dangerous because it's separate from
+
+312
+00:12:28,209 --> 00:12:30,420
+your production code until it's ready
+
+313
+00:12:30,420 --> 00:12:33,160
+this is what it looks like I'm sure most
+
+314
+00:12:33,160 --> 00:12:34,389
+of you guys actually know what Laurie
+
+315
+00:12:34,389 --> 00:12:36,730
+quests are but you know it's title
+
+316
+00:12:36,730 --> 00:12:38,980
+description and bunch of commits once
+
+317
+00:12:38,980 --> 00:12:40,120
+those commits are done that you can
+
+318
+00:12:40,120 --> 00:12:42,639
+discuss on those commits and discuss
+
+319
+00:12:42,639 --> 00:12:44,050
+them more than you commit and then you
+
+320
+00:12:44,050 --> 00:12:45,920
+get merged back into the master
+
+321
+00:12:45,920 --> 00:12:46,910
+whatever branch that you're trying to
+
+322
+00:12:46,910 --> 00:12:50,570
+version into the poultry bus itself is
+
+323
+00:12:50,570 --> 00:12:52,790
+broken out into a discussion where you
+
+324
+00:12:52,790 --> 00:12:54,769
+can actually talk about the changes the
+
+325
+00:12:54,769 --> 00:12:56,450
+commits or you show the commits and then
+
+326
+00:12:56,450 --> 00:12:58,070
+the diff where you can actually see what
+
+327
+00:12:58,070 --> 00:12:59,690
+has actually changed in the code and
+
+328
+00:12:59,690 --> 00:13:02,810
+this is really cool because we're really
+
+329
+00:13:02,810 --> 00:13:05,420
+large to get up at this point and no one
+
+330
+00:13:05,420 --> 00:13:07,250
+person can really take it to every line
+
+331
+00:13:07,250 --> 00:13:09,110
+of code that's changed but it's
+
+332
+00:13:09,110 --> 00:13:10,699
+important that you have a lot of people
+
+333
+00:13:10,699 --> 00:13:12,620
+know what you're doing so for a lot of
+
+334
+00:13:12,620 --> 00:13:14,089
+claw requests I won't look at the actual
+
+335
+00:13:14,089 --> 00:13:15,529
+code I'll just look at the discussion
+
+336
+00:13:15,529 --> 00:13:17,149
+and see like the title description and
+
+337
+00:13:17,149 --> 00:13:18,709
+that's a good way it's sort of like an
+
+338
+00:13:18,709 --> 00:13:20,750
+RSS of what development is happening
+
+339
+00:13:20,750 --> 00:13:22,699
+without having to sit down and do a
+
+340
+00:13:22,699 --> 00:13:24,019
+stand-up meeting or anything like that I
+
+341
+00:13:24,019 --> 00:13:26,360
+can just see it in my inbox as it goes
+
+342
+00:13:26,360 --> 00:13:28,360
+by and it's very simple
+
+343
+00:13:28,360 --> 00:13:30,470
+so I lied this isn't actually our
+
+344
+00:13:30,470 --> 00:13:32,990
+development strategy it's more similar
+
+345
+00:13:32,990 --> 00:13:35,810
+to this where you branch off send the
+
+346
+00:13:35,810 --> 00:13:37,070
+port west and then merge it in the
+
+347
+00:13:37,070 --> 00:13:39,350
+master and that's sort of the guard
+
+348
+00:13:39,350 --> 00:13:41,180
+against any really shitty code deployed
+
+349
+00:13:41,180 --> 00:13:45,380
+accidentally so vixa kind of one you
+
+350
+00:13:45,380 --> 00:13:46,850
+don't need a fork anything this is sort
+
+351
+00:13:46,850 --> 00:13:49,519
+of our common misconception you can do
+
+352
+00:13:49,519 --> 00:13:51,500
+poor request between branches on the
+
+353
+00:13:51,500 --> 00:13:53,199
+same repo and that's what we do
+
+354
+00:13:53,199 --> 00:13:55,579
+consistently and give up we don't fork
+
+355
+00:13:55,579 --> 00:13:57,560
+the main github repo all the time we're
+
+356
+00:13:57,560 --> 00:13:59,329
+just do pork was between into more
+
+357
+00:13:59,329 --> 00:14:01,430
+individual branches and then you have to
+
+358
+00:14:01,430 --> 00:14:03,380
+set up weird permission strategies to
+
+359
+00:14:03,380 --> 00:14:04,610
+let people under your different force
+
+360
+00:14:04,610 --> 00:14:06,440
+and stuff it's just a much simpler way
+
+361
+00:14:06,440 --> 00:14:07,810
+to do things
+
+362
+00:14:07,810 --> 00:14:10,430
+so why employed was actually rad for
+
+363
+00:14:10,430 --> 00:14:12,290
+reasons one they're asynchronous no
+
+364
+00:14:12,290 --> 00:14:14,260
+meetings
+
+365
+00:14:14,260 --> 00:14:16,279
+everybody's had that time where you're
+
+366
+00:14:16,279 --> 00:14:18,500
+in a cobra do in person and you're
+
+367
+00:14:18,500 --> 00:14:20,149
+projecting code on the wall you're
+
+368
+00:14:20,149 --> 00:14:21,740
+trying to figure out like okay you're
+
+369
+00:14:21,740 --> 00:14:23,570
+running it through your MRI in your head
+
+370
+00:14:23,570 --> 00:14:24,709
+you're trying to figure out okay this
+
+371
+00:14:24,709 --> 00:14:27,199
+compiles to this and does this it's a
+
+372
+00:14:27,199 --> 00:14:29,480
+terrible way of reviewing code with poor
+
+373
+00:14:29,480 --> 00:14:30,709
+requests you can easily pull down the
+
+374
+00:14:30,709 --> 00:14:33,649
+diff and run it locally and you can do
+
+375
+00:14:33,649 --> 00:14:34,790
+that whenever you want you don't have to
+
+376
+00:14:34,790 --> 00:14:36,050
+have a separate meeting on that stuff
+
+377
+00:14:36,050 --> 00:14:37,970
+it's really helpful to have it broken
+
+378
+00:14:37,970 --> 00:14:39,920
+away from some sort of synchronous like
+
+379
+00:14:39,920 --> 00:14:42,319
+this has to get reviewed right now and
+
+380
+00:14:42,319 --> 00:14:44,350
+stuff like that
+
+381
+00:14:44,350 --> 00:14:46,940
+certainly emails a good interface for
+
+382
+00:14:46,940 --> 00:14:48,769
+this too when I wake up in the morning I
+
+383
+00:14:48,769 --> 00:14:50,920
+can see all blow requests of a generator
+
+384
+00:14:50,920 --> 00:14:52,930
+from Europe for example and so again
+
+385
+00:14:52,930 --> 00:14:54,910
+this is a quite easy way to figure out
+
+386
+00:14:54,910 --> 00:14:56,050
+what's going on in the company without
+
+387
+00:14:56,050 --> 00:14:58,480
+mandating some standup which doesn't
+
+388
+00:14:58,480 --> 00:15:00,190
+even work when half your team is across
+
+389
+00:15:00,190 --> 00:15:03,310
+the world they're also really accessible
+
+390
+00:15:03,310 --> 00:15:04,450
+and we use this a lot
+
+391
+00:15:04,450 --> 00:15:06,310
+designers evolve entire mock-ups in
+
+392
+00:15:06,310 --> 00:15:08,230
+imploring words and that's really
+
+393
+00:15:08,230 --> 00:15:09,550
+powerful too it's like sort of merging
+
+394
+00:15:09,550 --> 00:15:11,199
+control for a mock-up so you can see as
+
+395
+00:15:11,199 --> 00:15:14,290
+you go along what what the mock-up has
+
+396
+00:15:14,290 --> 00:15:15,940
+changed over time to keep discuss on
+
+397
+00:15:15,940 --> 00:15:17,920
+that - we also have a bunch of
+
+398
+00:15:17,920 --> 00:15:19,630
+non-technical staff like we have a
+
+399
+00:15:19,630 --> 00:15:21,519
+shipper who ships out all your beautiful
+
+400
+00:15:21,519 --> 00:15:24,550
+shop stuff and she can go in and check
+
+401
+00:15:24,550 --> 00:15:25,990
+out a flurry quest like this is gonna
+
+402
+00:15:25,990 --> 00:15:28,389
+change the shop get up calm site can you
+
+403
+00:15:28,389 --> 00:15:30,399
+actually say like does this make sense
+
+404
+00:15:30,399 --> 00:15:32,050
+yeah she doesn't have to go see the code
+
+405
+00:15:32,050 --> 00:15:33,850
+did but she can see what's actually
+
+406
+00:15:33,850 --> 00:15:37,209
+happening and check it out they're also
+
+407
+00:15:37,209 --> 00:15:39,310
+historical making the experiments in
+
+408
+00:15:39,310 --> 00:15:40,570
+this should be experiments we have a lot
+
+409
+00:15:40,570 --> 00:15:41,889
+of pull requests that are designed not
+
+410
+00:15:41,889 --> 00:15:44,260
+to ever get deployed because we want to
+
+411
+00:15:44,260 --> 00:15:45,880
+see okay what do you guys think about
+
+412
+00:15:45,880 --> 00:15:47,320
+this interface what do you think about
+
+413
+00:15:47,320 --> 00:15:49,810
+this API like this does make sense it
+
+414
+00:15:49,810 --> 00:15:51,190
+does then I can just close the floor
+
+415
+00:15:51,190 --> 00:15:52,720
+request and then actually build it for
+
+416
+00:15:52,720 --> 00:15:54,850
+real don't be afraid to try something
+
+417
+00:15:54,850 --> 00:15:56,890
+out throw it away because it retains the
+
+418
+00:15:56,890 --> 00:16:00,010
+history and they should be really fun to
+
+419
+00:16:00,010 --> 00:16:02,170
+make you should not have to fear about
+
+420
+00:16:02,170 --> 00:16:04,930
+doing some insane experiment when you're
+
+421
+00:16:04,930 --> 00:16:08,800
+drunk and seeing how it works out so I
+
+422
+00:16:08,800 --> 00:16:10,029
+want to show you just a couple point
+
+423
+00:16:10,029 --> 00:16:14,140
+four requests that we do at github it's
+
+424
+00:16:14,140 --> 00:16:16,180
+a little bit more context static demo
+
+425
+00:16:16,180 --> 00:16:18,279
+calm there was a problem a while ago
+
+426
+00:16:18,279 --> 00:16:20,769
+again were you guys caught stuff before
+
+427
+00:16:20,769 --> 00:16:24,970
+we did or more or correctly we would get
+
+428
+00:16:24,970 --> 00:16:26,290
+like the notifications that something is
+
+429
+00:16:26,290 --> 00:16:28,149
+down but it took us another couple
+
+430
+00:16:28,149 --> 00:16:29,769
+minutes to actually update the status ID
+
+431
+00:16:29,769 --> 00:16:32,380
+so I added something just real time
+
+432
+00:16:32,380 --> 00:16:33,910
+pulling of different services on
+
+433
+00:16:33,910 --> 00:16:35,740
+github.com just to see if they're up and
+
+434
+00:16:35,740 --> 00:16:38,110
+this is a pull request now started out
+
+435
+00:16:38,110 --> 00:16:40,810
+just with a bare-bones interface and I
+
+436
+00:16:40,810 --> 00:16:42,399
+just dumped this on a page it would
+
+437
+00:16:42,399 --> 00:16:43,870
+check this and I didn't have to care
+
+438
+00:16:43,870 --> 00:16:44,920
+about styling or anything like that
+
+439
+00:16:44,920 --> 00:16:47,350
+because I knew it once I posted this
+
+440
+00:16:47,350 --> 00:16:49,540
+summer would come in and be like I want
+
+441
+00:16:49,540 --> 00:16:51,910
+to design that and that's where we have
+
+442
+00:16:51,910 --> 00:16:53,040
+a lot where designers
+
+443
+00:16:53,040 --> 00:16:54,990
+just gonna sort of you know see what's
+
+444
+00:16:54,990 --> 00:16:56,610
+happening the company and when it's
+
+445
+00:16:56,610 --> 00:16:58,170
+ready for them to come in they'll do a
+
+446
+00:16:58,170 --> 00:17:00,630
+design at that point I have a design act
+
+447
+00:17:00,630 --> 00:17:02,310
+build on that and commit to that design
+
+448
+00:17:02,310 --> 00:17:03,660
+and then just match it and it's very
+
+449
+00:17:03,660 --> 00:17:05,130
+easy for me I never have to worry about
+
+450
+00:17:05,130 --> 00:17:06,480
+that in the slightest and there's no
+
+451
+00:17:06,480 --> 00:17:08,220
+love front meetings it just all happens
+
+452
+00:17:08,220 --> 00:17:10,770
+very asynchronously by the end of it we
+
+453
+00:17:10,770 --> 00:17:12,569
+close it merchant shipping and that's it
+
+454
+00:17:12,569 --> 00:17:16,020
+it's very simple very easy you should
+
+455
+00:17:16,020 --> 00:17:17,669
+not be afraid to mix your designers and
+
+456
+00:17:17,669 --> 00:17:18,780
+developers they should work together
+
+457
+00:17:18,780 --> 00:17:22,980
+just like or bus are kind of scary from
+
+458
+00:17:22,980 --> 00:17:24,510
+a designer's point of view but they
+
+459
+00:17:24,510 --> 00:17:25,679
+don't have to get into the nitty-gritty
+
+460
+00:17:25,679 --> 00:17:27,299
+if they don't want to it's it's helpful
+
+461
+00:17:27,299 --> 00:17:28,950
+for them to get into the discussion
+
+462
+00:17:28,950 --> 00:17:30,540
+section don't be pretty close
+
+463
+00:17:30,540 --> 00:17:34,260
+screenshots a lot you can use you can
+
+464
+00:17:34,260 --> 00:17:36,179
+use this in the markdown which I'll show
+
+465
+00:17:36,179 --> 00:17:39,510
+you in a couple seconds but it's very
+
+466
+00:17:39,510 --> 00:17:41,549
+good to be very visual even on back-end
+
+467
+00:17:41,549 --> 00:17:44,280
+stuff you can also post gifs because
+
+468
+00:17:44,280 --> 00:17:48,240
+they're funny we do that a lot we also
+
+469
+00:17:48,240 --> 00:17:50,760
+have something called code editing or
+
+470
+00:17:50,760 --> 00:17:52,140
+it's a syntax highlighting in your code
+
+471
+00:17:52,140 --> 00:17:54,030
+editor and this was like earlier this
+
+472
+00:17:54,030 --> 00:17:57,419
+year and this entire pull request we did
+
+473
+00:17:57,419 --> 00:17:58,710
+all this stuff did this bunch of
+
+474
+00:17:58,710 --> 00:18:00,120
+discussion and then we're like
+
+475
+00:18:00,120 --> 00:18:02,010
+it doesn't work we can't do it close it
+
+476
+00:18:02,010 --> 00:18:04,320
+and that's it that's important that's
+
+477
+00:18:04,320 --> 00:18:06,659
+still really good because they're cheap
+
+478
+00:18:06,659 --> 00:18:07,980
+as hell you shouldn't be afraid to
+
+479
+00:18:07,980 --> 00:18:10,590
+experiment that seemed really kind of a
+
+480
+00:18:10,590 --> 00:18:12,000
+bummer at first this we really wanted
+
+481
+00:18:12,000 --> 00:18:14,340
+this to work out but the library we were
+
+482
+00:18:14,340 --> 00:18:16,409
+using didn't work out don't be afraid to
+
+483
+00:18:16,409 --> 00:18:18,960
+toss it away this was great because five
+
+484
+00:18:18,960 --> 00:18:20,640
+or six months later we found a different
+
+485
+00:18:20,640 --> 00:18:22,290
+library that did a lot better and
+
+486
+00:18:22,290 --> 00:18:24,390
+integrins and it works how we wanted it
+
+487
+00:18:24,390 --> 00:18:25,409
+to work and we could go back to the
+
+488
+00:18:25,409 --> 00:18:27,210
+original claw request and say what was
+
+489
+00:18:27,210 --> 00:18:29,370
+my design decisions here what did I
+
+490
+00:18:29,370 --> 00:18:31,140
+wanted to hear and then you don't have
+
+491
+00:18:31,140 --> 00:18:33,890
+to reinvent the wheel every time so
+
+492
+00:18:33,890 --> 00:18:36,000
+really play around pull request visible
+
+493
+00:18:36,000 --> 00:18:37,230
+request that started the beginning this
+
+494
+00:18:37,230 --> 00:18:40,650
+year hasn't shipped yet it's got a bunch
+
+495
+00:18:40,650 --> 00:18:43,470
+of stuff in it and that's really cool we
+
+496
+00:18:43,470 --> 00:18:44,880
+can hire somebody tomorrow and if
+
+497
+00:18:44,880 --> 00:18:46,080
+they're asking what they want to work on
+
+498
+00:18:46,080 --> 00:18:48,419
+we can point them to this there's no you
+
+499
+00:18:48,419 --> 00:18:50,850
+know back alleyway deals about like you
+
+500
+00:18:50,850 --> 00:18:53,280
+know communicate between two people then
+
+501
+00:18:53,280 --> 00:18:55,049
+they need to have to chase down somebody
+
+502
+00:18:55,049 --> 00:18:56,340
+else if you like please tell me what
+
+503
+00:18:56,340 --> 00:18:57,390
+your thoughts are on this
+
+504
+00:18:57,390 --> 00:18:58,980
+it's all right here we can go back later
+
+505
+00:18:58,980 --> 00:19:02,760
+to check it out kitchens done don't
+
+506
+00:19:02,760 --> 00:19:04,920
+waste your time
+
+507
+00:19:04,920 --> 00:19:06,690
+just this is something that you have to
+
+508
+00:19:06,690 --> 00:19:08,040
+constantly worry about like can you
+
+509
+00:19:08,040 --> 00:19:09,600
+would improve your workflow can you make
+
+510
+00:19:09,600 --> 00:19:12,210
+it a lot better and it's something that
+
+511
+00:19:12,210 --> 00:19:13,470
+you have to do constantly because
+
+512
+00:19:13,470 --> 00:19:14,760
+otherwise will sneak up on you and
+
+513
+00:19:14,760 --> 00:19:18,630
+really you down the road so recap
+
+514
+00:19:18,630 --> 00:19:19,860
+news pull request more they're awesome
+
+515
+00:19:19,860 --> 00:19:23,040
+ship a lot more I think they're really
+
+516
+00:19:23,040 --> 00:19:24,120
+great I think they're really important
+
+517
+00:19:24,120 --> 00:19:26,040
+and if you are able to do them in your
+
+518
+00:19:26,040 --> 00:19:26,610
+company
+
+519
+00:19:26,610 --> 00:19:29,940
+I should investigate almost I go to
+
+520
+00:19:29,940 --> 00:19:31,950
+choose everybody has issues of different
+
+521
+00:19:31,950 --> 00:19:33,390
+companies I'm talking about like tickets
+
+522
+00:19:33,390 --> 00:19:35,280
+stuff like that
+
+523
+00:19:35,280 --> 00:19:37,410
+so everybody see the screen like this
+
+524
+00:19:37,410 --> 00:19:40,290
+like a new issue create screen the
+
+525
+00:19:40,290 --> 00:19:42,690
+problem of this is there's a lot of
+
+526
+00:19:42,690 --> 00:19:45,540
+stuff going on here and some of the
+
+527
+00:19:45,540 --> 00:19:46,950
+makes sense and you're like okay yeah
+
+528
+00:19:46,950 --> 00:19:49,140
+that's cool and then they just layer
+
+529
+00:19:49,140 --> 00:19:51,030
+more and more stuff on there before you
+
+530
+00:19:51,030 --> 00:19:52,200
+know what there's some up
+
+531
+00:19:52,200 --> 00:19:55,770
+going on there turn figure out what is
+
+532
+00:19:55,770 --> 00:19:57,600
+what is the point of all this stuff like
+
+533
+00:19:57,600 --> 00:19:58,920
+duplicating priorities and stuff like
+
+534
+00:19:58,920 --> 00:20:02,460
+that this is the one and you know calm
+
+535
+00:20:02,460 --> 00:20:04,620
+and this is not again about get up this
+
+536
+00:20:04,620 --> 00:20:07,080
+is the tool we choose internally all it
+
+537
+00:20:07,080 --> 00:20:09,630
+is is title description and we do away
+
+538
+00:20:09,630 --> 00:20:11,760
+with a whole bunch of priorities and
+
+539
+00:20:11,760 --> 00:20:14,280
+craziness because for the most part you
+
+540
+00:20:14,280 --> 00:20:16,710
+don't need to ask you something about
+
+541
+00:20:16,710 --> 00:20:19,500
+survival simpler tools can work better
+
+542
+00:20:19,500 --> 00:20:21,900
+and faster on simpler tools I think you
+
+543
+00:20:21,900 --> 00:20:26,370
+can brother man I sort of have a man
+
+544
+00:20:26,370 --> 00:20:28,590
+crush on him Twitter crush these amazing
+
+545
+00:20:28,590 --> 00:20:31,050
+hero this awesome post on email
+
+546
+00:20:31,050 --> 00:20:33,210
+priorities they said the priorities was
+
+547
+00:20:33,210 --> 00:20:34,440
+they're not manufacturer signing
+
+548
+00:20:34,440 --> 00:20:35,880
+otherwise necessarily not a priority
+
+549
+00:20:35,880 --> 00:20:38,040
+making something a big red top topic
+
+550
+00:20:38,040 --> 00:20:39,120
+highest number one priority changes
+
+551
+00:20:39,120 --> 00:20:40,500
+nothing but textile we're really
+
+552
+00:20:40,500 --> 00:20:42,360
+important there would be done period I
+
+553
+00:20:42,360 --> 00:20:44,010
+think that's really important he's
+
+554
+00:20:44,010 --> 00:20:45,750
+talked about email but the same is true
+
+555
+00:20:45,750 --> 00:20:47,880
+for stuff across the board issues
+
+556
+00:20:47,880 --> 00:20:50,100
+prioritization dragging dropping like
+
+557
+00:20:50,100 --> 00:20:51,990
+all these issues to prioritize and stuff
+
+558
+00:20:51,990 --> 00:20:54,060
+think about if you actually need that if
+
+559
+00:20:54,060 --> 00:20:55,680
+you do that's cool then use it but if
+
+560
+00:20:55,680 --> 00:20:57,300
+you don't need that you're wasting a lot
+
+561
+00:20:57,300 --> 00:21:00,120
+of time there's all this stuff that we
+
+562
+00:21:00,120 --> 00:21:02,910
+have as developers asking to get rid of
+
+563
+00:21:02,910 --> 00:21:05,670
+all of it resist any metal work it gets
+
+564
+00:21:05,670 --> 00:21:07,770
+in the way of real work the real work
+
+565
+00:21:07,770 --> 00:21:10,980
+will get done quickly your we use issues
+
+566
+00:21:10,980 --> 00:21:13,700
+for three things should something broken
+
+567
+00:21:13,700 --> 00:21:15,840
+something is broken that gets fixed in
+
+568
+00:21:15,840 --> 00:21:18,210
+few hours that's it we also use issues
+
+569
+00:21:18,210 --> 00:21:20,640
+or wouldn't it be cool if and then you
+
+570
+00:21:20,640 --> 00:21:22,320
+it's nice to have a discussion this is
+
+571
+00:21:22,320 --> 00:21:23,610
+prior to the flooring quest because you
+
+572
+00:21:23,610 --> 00:21:25,260
+don't want to throw it on code yet but
+
+573
+00:21:25,260 --> 00:21:27,600
+it's fun to talk about we also use as
+
+574
+00:21:27,600 --> 00:21:30,330
+to-do lists sometimes that's just kind
+
+575
+00:21:30,330 --> 00:21:31,680
+of an easy way you don't have to set up
+
+576
+00:21:31,680 --> 00:21:34,770
+a weird you know issue tracking you know
+
+577
+00:21:34,770 --> 00:21:36,450
+to do report or something like that it's
+
+578
+00:21:36,450 --> 00:21:38,880
+all just one in one issue do you need
+
+579
+00:21:38,880 --> 00:21:41,160
+more than that really think about that
+
+580
+00:21:41,160 --> 00:21:44,100
+the most time you don't sometimes you do
+
+581
+00:21:44,100 --> 00:21:45,960
+which is fine almost of time you don't
+
+582
+00:21:45,960 --> 00:21:47,970
+simple tools means a better product
+
+583
+00:21:47,970 --> 00:21:52,110
+because you can build it simpler okay oh
+
+584
+00:21:52,110 --> 00:21:54,900
+office identity this is fun
+
+585
+00:21:54,900 --> 00:21:58,710
+I love Ruby I really love Ruby I'm not
+
+586
+00:21:58,710 --> 00:22:00,090
+talking about like the speed of Ruby
+
+587
+00:22:00,090 --> 00:22:04,440
+because it is slow sticks I'm talking
+
+588
+00:22:04,440 --> 00:22:06,000
+about like how fast is to build
+
+589
+00:22:06,000 --> 00:22:07,980
+something like it is really fast and
+
+590
+00:22:07,980 --> 00:22:09,510
+build something so I looked through my
+
+591
+00:22:09,510 --> 00:22:11,940
+development folder about what projects I
+
+592
+00:22:11,940 --> 00:22:12,840
+have in there and I have one called
+
+593
+00:22:12,840 --> 00:22:15,750
+Secretary of Labor all caps I was really
+
+594
+00:22:15,750 --> 00:22:18,150
+drunk when I wrote this and I saw in the
+
+595
+00:22:18,150 --> 00:22:20,190
+next morning it's just a signal Sinatra
+
+596
+00:22:20,190 --> 00:22:22,290
+app and it's got a stuff referential
+
+597
+00:22:22,290 --> 00:22:23,760
+symlink called what that points to
+
+598
+00:22:23,760 --> 00:22:26,370
+itself I have no idea what it does I
+
+599
+00:22:26,370 --> 00:22:28,440
+have one called unmarked van which
+
+600
+00:22:28,440 --> 00:22:30,680
+attracts people's physical locations a
+
+601
+00:22:30,680 --> 00:22:33,240
+one called trace is a real-time stats
+
+602
+00:22:33,240 --> 00:22:35,340
+graphing in Redis the point is all this
+
+603
+00:22:35,340 --> 00:22:36,870
+stuff is really fun to make it was fun
+
+604
+00:22:36,870 --> 00:22:38,850
+experiment none of this stuff is ever
+
+605
+00:22:38,850 --> 00:22:41,610
+shipping especially not that first one
+
+606
+00:22:41,610 --> 00:22:45,300
+but it's fun to try stuff out and we do
+
+607
+00:22:45,300 --> 00:22:46,560
+this stuff and give up too we have a
+
+608
+00:22:46,560 --> 00:22:49,140
+bunch of internal apps we have you know
+
+609
+00:22:49,140 --> 00:22:50,610
+probably have more than this at this
+
+610
+00:22:50,610 --> 00:22:52,740
+point but some of them are more fun some
+
+611
+00:22:52,740 --> 00:22:54,510
+of them are very serious ci stuff like
+
+612
+00:22:54,510 --> 00:22:56,160
+that we have an internal Twitter which
+
+613
+00:22:56,160 --> 00:22:57,750
+is more fun status updates and stuff
+
+614
+00:22:57,750 --> 00:22:59,640
+like that the point is that we want
+
+615
+00:22:59,640 --> 00:23:01,020
+people experimenting keeps things really
+
+616
+00:23:01,020 --> 00:23:04,110
+funny keeps things interesting the
+
+617
+00:23:04,110 --> 00:23:05,430
+problem with all this is that Outsiders
+
+618
+00:23:05,430 --> 00:23:06,990
+aren't welcome like we're really open
+
+619
+00:23:06,990 --> 00:23:08,430
+company but you don't wants people just
+
+620
+00:23:08,430 --> 00:23:09,780
+trudging through all your stuff so yeah
+
+621
+00:23:09,780 --> 00:23:11,850
+that's an authentication layer for us we
+
+622
+00:23:11,850 --> 00:23:13,410
+use github for that medication layer we
+
+623
+00:23:13,410 --> 00:23:15,930
+have all of our team's our orgs in give
+
+624
+00:23:15,930 --> 00:23:18,900
+up so we just use a lot to attempt that
+
+625
+00:23:18,900 --> 00:23:20,670
+and use that as sort of medication and
+
+626
+00:23:20,670 --> 00:23:23,010
+all of these separate mini apps you guys
+
+627
+00:23:23,010 --> 00:23:25,050
+what we all see in the screen the you
+
+628
+00:23:25,050 --> 00:23:26,040
+know a lot of them to check out your
+
+629
+00:23:26,040 --> 00:23:26,650
+profile
+
+630
+00:23:26,650 --> 00:23:29,020
+yes no you can use this in a bunch of
+
+631
+00:23:29,020 --> 00:23:30,610
+different ways there's a whole bunch of
+
+632
+00:23:30,610 --> 00:23:34,240
+different Ruby libraries this is one
+
+633
+00:23:34,240 --> 00:23:35,950
+done by Atmos all we have to do is just
+
+634
+00:23:35,950 --> 00:23:37,180
+check whether or not they're a member of
+
+635
+00:23:37,180 --> 00:23:38,830
+the github or if they are lemon in the
+
+636
+00:23:38,830 --> 00:23:41,470
+app it's very easy if we you know hire
+
+637
+00:23:41,470 --> 00:23:44,710
+somebody we don't have to update 30 40
+
+638
+00:23:44,710 --> 00:23:46,240
+different apps we have it's all in one
+
+639
+00:23:46,240 --> 00:23:48,850
+place it's just a nice consistent way of
+
+640
+00:23:48,850 --> 00:23:51,550
+doing things think about like if you
+
+641
+00:23:51,550 --> 00:23:53,530
+have this problem can you pawn it off on
+
+642
+00:23:53,530 --> 00:23:56,140
+somebody else and that means github a
+
+643
+00:23:56,140 --> 00:23:57,580
+lot of people on Twitter now you can use
+
+644
+00:23:57,580 --> 00:24:00,790
+Twitter's authentication for that or you
+
+645
+00:24:00,790 --> 00:24:02,200
+know if you're big enough to have your
+
+646
+00:24:02,200 --> 00:24:03,790
+own it internally that server or
+
+647
+00:24:03,790 --> 00:24:05,950
+whatever you got just don't reinvent the
+
+648
+00:24:05,950 --> 00:24:10,980
+wheel it's good to use a consolidated
+
+649
+00:24:10,980 --> 00:24:15,670
+feature for all this stuff okay let's
+
+650
+00:24:15,670 --> 00:24:17,470
+talk about cubot everybody what you
+
+651
+00:24:17,470 --> 00:24:22,960
+bought so free so you bots are friendly
+
+652
+00:24:22,960 --> 00:24:25,510
+campfire bots he's cool even do some
+
+653
+00:24:25,510 --> 00:24:29,290
+stuff the other trainer commands for us
+
+654
+00:24:29,290 --> 00:24:31,630
+employer github app this is important
+
+655
+00:24:31,630 --> 00:24:33,850
+when you have 50 some servers because
+
+656
+00:24:33,850 --> 00:24:36,250
+you have no idea how to employ all that
+
+657
+00:24:36,250 --> 00:24:37,660
+stuff so we just say you might deploy
+
+658
+00:24:37,660 --> 00:24:39,970
+exit to production and he doesn't that's
+
+659
+00:24:39,970 --> 00:24:40,540
+great
+
+660
+00:24:40,540 --> 00:24:42,160
+I mean you're on branch level tests so
+
+661
+00:24:42,160 --> 00:24:44,080
+if you push the branch up that will just
+
+662
+00:24:44,080 --> 00:24:46,090
+run automatically if like using in the
+
+663
+00:24:46,090 --> 00:24:47,950
+office and you tell us who is in the
+
+664
+00:24:47,950 --> 00:24:49,480
+office based on a white/black presence
+
+665
+00:24:49,480 --> 00:24:50,830
+on their MAC address on their phone or
+
+666
+00:24:50,830 --> 00:24:54,160
+their laptop bill abusive drastic in
+
+667
+00:24:54,160 --> 00:24:55,450
+charge all those exceptions for such
+
+668
+00:24:55,450 --> 00:24:57,340
+deploys versus Twitter mentions send
+
+669
+00:24:57,340 --> 00:24:58,929
+receive text messages your mustache
+
+670
+00:24:58,929 --> 00:25:01,620
+every image posted chat like that
+
+671
+00:25:01,620 --> 00:25:04,000
+attract who swears the most every day
+
+672
+00:25:04,000 --> 00:25:06,309
+you know we can do all this stuff and
+
+673
+00:25:06,309 --> 00:25:08,170
+it's more fun because it's a shared side
+
+674
+00:25:08,170 --> 00:25:09,460
+project again and it's fun to have
+
+675
+00:25:09,460 --> 00:25:11,980
+experimentation use cool technologies
+
+676
+00:25:11,980 --> 00:25:14,470
+it's too bad he's not open source I'm
+
+677
+00:25:14,470 --> 00:25:17,110
+sorry is that open source that's look
+
+678
+00:25:17,110 --> 00:25:18,730
+like last week it's awesome we have like
+
+679
+00:25:18,730 --> 00:25:22,440
+tons of adapters now using IRC campfire
+
+680
+00:25:22,440 --> 00:25:25,720
+XMPP and tons of stuff so check them out
+
+681
+00:25:25,720 --> 00:25:27,730
+if you haven't already this is a really
+
+682
+00:25:27,730 --> 00:25:28,930
+fun project you have it
+
+683
+00:25:28,930 --> 00:25:31,630
+your company in terms of how we use them
+
+684
+00:25:31,630 --> 00:25:34,090
+for github we use them a bunch of
+
+685
+00:25:34,090 --> 00:25:35,980
+different ways specifically we use them
+
+686
+00:25:35,980 --> 00:25:37,900
+for branch status a lot you're gonna ask
+
+687
+00:25:37,900 --> 00:25:39,610
+you about what hasn't been deployed and
+
+688
+00:25:39,610 --> 00:25:41,860
+he'll return it and compare view of what
+
+689
+00:25:41,860 --> 00:25:43,210
+has been deployed yet so you know if
+
+690
+00:25:43,210 --> 00:25:44,860
+you're gonna deploy this these are the
+
+691
+00:25:44,860 --> 00:25:46,600
+concrete disks that have been deployed
+
+692
+00:25:46,600 --> 00:25:48,370
+yet and be worried about these if you
+
+693
+00:25:48,370 --> 00:25:50,680
+deploy we can do this on a different
+
+694
+00:25:50,680 --> 00:25:52,270
+branch to surgery and deploy a separate
+
+695
+00:25:52,270 --> 00:25:53,860
+branch to production or you know you
+
+696
+00:25:53,860 --> 00:25:55,870
+want to know what on that branch has
+
+697
+00:25:55,870 --> 00:25:57,970
+been version master yet you can do all
+
+698
+00:25:57,970 --> 00:26:00,970
+this it all stems from this shop which
+
+699
+00:26:00,970 --> 00:26:02,710
+we know what does the currently deployed
+
+700
+00:26:02,710 --> 00:26:06,490
+code on github because it's all in this
+
+701
+00:26:06,490 --> 00:26:08,980
+one site it's just an endpoint and use
+
+702
+00:26:08,980 --> 00:26:10,570
+this all over the place like CI stuff
+
+703
+00:26:10,570 --> 00:26:11,650
+like that
+
+704
+00:26:11,650 --> 00:26:13,870
+it's just a nice helpful way of doing
+
+705
+00:26:13,870 --> 00:26:15,160
+that and you can build it with your pair
+
+706
+00:26:15,160 --> 00:26:18,010
+of use and it's fun because he was long
+
+707
+00:26:18,010 --> 00:26:20,920
+the API and get up to I can ask it one
+
+708
+00:26:20,920 --> 00:26:22,090
+of the Pollard bus on my particular
+
+709
+00:26:22,090 --> 00:26:23,980
+repository and I'll sit back all the
+
+710
+00:26:23,980 --> 00:26:26,680
+quarry quests very simple very easy it
+
+711
+00:26:26,680 --> 00:26:30,070
+becomes a nice way of setting the to-do
+
+712
+00:26:30,070 --> 00:26:32,440
+list if you're ever like what should I
+
+713
+00:26:32,440 --> 00:26:34,650
+work on today this is nice way to start
+
+714
+00:26:34,650 --> 00:26:37,300
+we also have the same thing for issues
+
+715
+00:26:37,300 --> 00:26:38,980
+we have bug days every like second
+
+716
+00:26:38,980 --> 00:26:40,780
+Thursday or so just as a way to clear
+
+717
+00:26:40,780 --> 00:26:42,520
+out little issues and this is kind of
+
+718
+00:26:42,520 --> 00:26:43,930
+fun you can ask it humming it's doing
+
+719
+00:26:43,930 --> 00:26:46,450
+close to it and you know I'm back how
+
+720
+00:26:46,450 --> 00:26:47,740
+many issues you close today it's another
+
+721
+00:26:47,740 --> 00:26:49,600
+way it's sort of you know I hate the
+
+722
+00:26:49,600 --> 00:26:51,850
+word but like gamification of like your
+
+723
+00:26:51,850 --> 00:26:53,770
+work it's fun to be like how can we do
+
+724
+00:26:53,770 --> 00:26:55,420
+more issues knocked out this week than
+
+725
+00:26:55,420 --> 00:26:57,690
+we did the last time it's fun
+
+726
+00:26:57,690 --> 00:26:59,830
+think about what you can automate at
+
+727
+00:26:59,830 --> 00:27:01,240
+your company because the stuff that
+
+728
+00:27:01,240 --> 00:27:02,950
+really sucks are the things that you
+
+729
+00:27:02,950 --> 00:27:04,420
+have to repeatedly do over and over
+
+730
+00:27:04,420 --> 00:27:06,490
+again and we're developers it's it's fun
+
+731
+00:27:06,490 --> 00:27:08,980
+to of over-engineer stuff sometimes and
+
+732
+00:27:08,980 --> 00:27:10,570
+like you'll spend way more time
+
+733
+00:27:10,570 --> 00:27:12,730
+automating something then you think
+
+734
+00:27:12,730 --> 00:27:13,750
+you'll get out of it but you'll actually
+
+735
+00:27:13,750 --> 00:27:15,190
+get a lot more out of it than you
+
+736
+00:27:15,190 --> 00:27:15,790
+probably think
+
+737
+00:27:15,790 --> 00:27:18,820
+plus it's really fun to do so the moral
+
+738
+00:27:18,820 --> 00:27:20,920
+of story about knows we live I don't
+
+739
+00:27:20,920 --> 00:27:24,310
+know he's freaking finally I just want
+
+740
+00:27:24,310 --> 00:27:25,420
+to talk about some cigarettes I don't
+
+741
+00:27:25,420 --> 00:27:27,280
+blow through these because github got
+
+742
+00:27:27,280 --> 00:27:29,380
+some funny secrets we talk stuff away
+
+743
+00:27:29,380 --> 00:27:33,730
+sometimes our bad here's the fun stuff
+
+744
+00:27:33,730 --> 00:27:37,810
+you can have emoji all those fun things
+
+745
+00:27:37,810 --> 00:27:39,070
+we do these I'm flow requests all the
+
+746
+00:27:39,070 --> 00:27:39,880
+time we just
+
+747
+00:27:39,880 --> 00:27:43,150
+one stuff we say art I don't know it's
+
+748
+00:27:43,150 --> 00:27:44,380
+fun it's a fun way of getting people
+
+749
+00:27:44,380 --> 00:27:46,570
+involved on stuff really cool go to that
+
+750
+00:27:46,570 --> 00:27:48,039
+link to see a whole list of emoji and
+
+751
+00:27:48,039 --> 00:27:49,809
+stuff like that all my slides are up on
+
+752
+00:27:49,809 --> 00:27:51,820
+my site later you can check out these
+
+753
+00:27:51,820 --> 00:27:55,240
+links and stuff later shortcuts if you
+
+754
+00:27:55,240 --> 00:27:56,679
+guys don't know all this stuff W will
+
+755
+00:27:56,679 --> 00:27:58,179
+bring up the branch selector on a repo
+
+756
+00:27:58,179 --> 00:28:00,820
+page he will do the finding project sort
+
+757
+00:28:00,820 --> 00:28:02,470
+of like the text mining project really
+
+758
+00:28:02,470 --> 00:28:04,510
+quick I mean you can press a question
+
+759
+00:28:04,510 --> 00:28:05,710
+mark on any page you'll bring up the
+
+760
+00:28:05,710 --> 00:28:08,080
+help dialog and those like crap-ton of
+
+761
+00:28:08,080 --> 00:28:10,150
+the shortcuts you can do to do a bunch
+
+762
+00:28:10,150 --> 00:28:12,039
+of different stuff issues for example
+
+763
+00:28:12,039 --> 00:28:13,840
+has a whole bunch of quick access to
+
+764
+00:28:13,840 --> 00:28:16,450
+issues images images are awesome
+
+765
+00:28:16,450 --> 00:28:18,130
+especially when they're animated this is
+
+766
+00:28:18,130 --> 00:28:20,409
+the markdown format for posting an image
+
+767
+00:28:20,409 --> 00:28:23,320
+into issues this will post the image on
+
+768
+00:28:23,320 --> 00:28:25,419
+force this only works if you dorky
+
+769
+00:28:25,419 --> 00:28:27,580
+dodgeball team is the image I'm just
+
+770
+00:28:27,580 --> 00:28:41,409
+kidding that's our basketball team dodge
+
+771
+00:28:41,409 --> 00:28:43,360
+well we waited 50 grand it was great for
+
+772
+00:28:43,360 --> 00:28:48,760
+charity not broken also different patch
+
+773
+00:28:48,760 --> 00:28:50,440
+I mean it was based on a mailing list
+
+774
+00:28:50,440 --> 00:28:52,659
+point of view so all of this stuff that
+
+775
+00:28:52,659 --> 00:28:54,760
+we expose on github is also available in
+
+776
+00:28:54,760 --> 00:28:57,520
+text basically to just add get the duck
+
+777
+00:28:57,520 --> 00:28:59,740
+tip or dot patch after most URLs and
+
+778
+00:28:59,740 --> 00:29:00,940
+will spit out a nice thing that you can
+
+779
+00:29:00,940 --> 00:29:03,520
+put directly to get later the other
+
+780
+00:29:03,520 --> 00:29:05,980
+thing we have is Sprint's code this is
+
+781
+00:29:05,980 --> 00:29:07,960
+sort of a you did the formatting of any
+
+782
+00:29:07,960 --> 00:29:09,640
+code that you can taste into issues or
+
+783
+00:29:09,640 --> 00:29:11,320
+requests stuff like that all you have to
+
+784
+00:29:11,320 --> 00:29:13,240
+do is triple tick and then say what
+
+785
+00:29:13,240 --> 00:29:14,679
+language you want and it will syntax
+
+786
+00:29:14,679 --> 00:29:16,750
+highlight for that language a nice quick
+
+787
+00:29:16,750 --> 00:29:18,190
+thing to do especially doing in read
+
+788
+00:29:18,190 --> 00:29:19,990
+these because read knees would just
+
+789
+00:29:19,990 --> 00:29:21,940
+blocks of code in them kind of sucks
+
+790
+00:29:21,940 --> 00:29:23,320
+it's nice to have that syntactically
+
+791
+00:29:23,320 --> 00:29:25,750
+highlighted mentions we use this a lot
+
+792
+00:29:25,750 --> 00:29:28,390
+they're gonna open a issue we usually
+
+793
+00:29:28,390 --> 00:29:30,820
+add like CC you know at TechnoMarine e
+
+794
+00:29:30,820 --> 00:29:32,500
+or at defunct and then that will notify
+
+795
+00:29:32,500 --> 00:29:34,659
+them and get them to put their eyes on
+
+796
+00:29:34,659 --> 00:29:36,280
+your floor request it's a nice way of
+
+797
+00:29:36,280 --> 00:29:38,679
+just having communication amongst your
+
+798
+00:29:38,679 --> 00:29:41,289
+requests issues stuff like that whites
+
+799
+00:29:41,289 --> 00:29:43,630
+facing that question mark w equals one
+
+800
+00:29:43,630 --> 00:29:45,880
+to reduce whitespace and disks
+
+801
+00:29:45,880 --> 00:29:47,080
+sometimes that's really help
+
+802
+00:29:47,080 --> 00:29:49,330
+of some dice an employer requests with a
+
+803
+00:29:49,330 --> 00:29:50,620
+whole bunch of whitespace changes and
+
+804
+00:29:50,620 --> 00:29:51,279
+you're like I don't even know like
+
+805
+00:29:51,279 --> 00:29:53,679
+changing what needs a way to do that
+
+806
+00:29:53,679 --> 00:29:57,340
+repo references you can cross you can
+
+807
+00:29:57,340 --> 00:29:59,559
+reference issues and pull requests
+
+808
+00:29:59,559 --> 00:30:02,080
+across different repositories so you
+
+809
+00:30:02,080 --> 00:30:04,480
+just in your issue body just say like
+
+810
+00:30:04,480 --> 00:30:06,429
+user sorry mode and number of signed
+
+811
+00:30:06,429 --> 00:30:09,100
+issues and that will bring in the link
+
+812
+00:30:09,100 --> 00:30:12,820
+on the referenced issue and it'll just
+
+813
+00:30:12,820 --> 00:30:15,730
+connect the two visually in the webpage
+
+814
+00:30:15,730 --> 00:30:18,159
+it's kind of nice I have a sumo
+
+815
+00:30:18,159 --> 00:30:20,289
+announcement right now we have a URL
+
+816
+00:30:20,289 --> 00:30:22,149
+shortener we've been using for a while
+
+817
+00:30:22,149 --> 00:30:25,149
+now I'm announcing this here because I
+
+818
+00:30:25,149 --> 00:30:27,730
+can so if you have a really long URL you
+
+819
+00:30:27,730 --> 00:30:31,000
+can shorten it to get that IOU RL you do
+
+820
+00:30:31,000 --> 00:30:33,750
+that via this is a very simple service
+
+821
+00:30:33,750 --> 00:30:36,519
+the the Ren URL down there is actually a
+
+822
+00:30:36,519 --> 00:30:38,529
+gist that actually shows you how to set
+
+823
+00:30:38,529 --> 00:30:39,970
+up a shell script to do all this for you
+
+824
+00:30:39,970 --> 00:30:41,260
+so if you ever want to tweet something
+
+825
+00:30:41,260 --> 00:30:43,539
+or have some shortened URL or if you
+
+826
+00:30:43,539 --> 00:30:45,279
+want to snag one for your vanity URL
+
+827
+00:30:45,279 --> 00:30:47,110
+comm slash hold and stuff like that
+
+828
+00:30:47,110 --> 00:30:49,510
+that's nice way to do it check out all
+
+829
+00:30:49,510 --> 00:30:54,549
+these links in my talk later slides so
+
+830
+00:30:54,549 --> 00:30:57,039
+that's the recap really think through
+
+831
+00:30:57,039 --> 00:30:59,980
+this stuff this is the stuff that will
+
+832
+00:30:59,980 --> 00:31:01,750
+bite you further down the line unless
+
+833
+00:31:01,750 --> 00:31:03,880
+you really think it to reach time and
+
+834
+00:31:03,880 --> 00:31:05,200
+the problem is that you don't notice it
+
+835
+00:31:05,200 --> 00:31:07,210
+being a problem until it's too late and
+
+836
+00:31:07,210 --> 00:31:08,679
+then when you can't go back and fix it
+
+837
+00:31:08,679 --> 00:31:10,149
+so it's got to be a constant battle of
+
+838
+00:31:10,149 --> 00:31:11,830
+like what kind of group how can I make
+
+839
+00:31:11,830 --> 00:31:13,779
+my developers happier do I really need
+
+840
+00:31:13,779 --> 00:31:15,970
+all this extra stuff and then I think
+
+841
+00:31:15,970 --> 00:31:19,950
+you can make cool products so thanks
+
