@@ -30,13 +30,13 @@
 * FFT
   * 3 Applications of the (Fast) Fourier Transform (ft. Michael Kapralov)（FFT介绍）
   
-  推荐指数 :star::star::star:[Yutube上的网址](https://www.youtube.com/watch?v=aqa6vyGSdos&t=3s) [B站上的网址](https://www.bilibili.com/video/av41566846/)
+  推荐指数 :star::star::star:[Yutube上的网址](https://www.youtube.com/watch?v=aqa6vyGSdos&t=3s) [B站上的网址](https://www.bilibili.com/video/av41698862/)
   * fft on oscillograph（在示波器上使用FFT）
   
-  推荐指数 :star::star::star:[Yutube上的网址](https://www.youtube.com/watch?v=zKKGA30bHG0&t=2s) [B站上的网址](https://www.bilibili.com/video/av41566846/)
+  推荐指数 :star::star::star:[Yutube上的网址](https://www.youtube.com/watch?v=zKKGA30bHG0&t=2s) [B站上的网址](https://www.bilibili.com/video/av41696621/)
   * How the 2D FFT works（对二维图像FFT）
   
-  推荐指数 :star::star::star:[Yutube上的网址](https://www.youtube.com/watch?v=v743U7gvLq0&t=4s) [B站上的网址](https://www.bilibili.com/video/av41566846/)
+  推荐指数 :star::star::star:[Yutube上的网址](https://www.youtube.com/watch?v=v743U7gvLq0&t=4s) [B站上的网址](https://www.bilibili.com/video/av41696978/)
 
 
 
