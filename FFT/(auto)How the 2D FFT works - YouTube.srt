@@ -1,0 +1,836 @@
+﻿1
+00:00:00,060 --> 00:00:02,340
+in this video I'm going to explain the
+
+2
+00:00:02,340 --> 00:00:05,910
+2d Fourier transform in some sense the
+
+3
+00:00:05,910 --> 00:00:08,760
+2d Fourier transform is just a simple
+
+4
+00:00:08,760 --> 00:00:11,429
+and straightforward extension of the 1d
+
+5
+00:00:11,429 --> 00:00:13,320
+Fourier transform that you've been
+
+6
+00:00:13,320 --> 00:00:15,170
+learning about so far
+
+7
+00:00:15,170 --> 00:00:17,820
+unfortunately however it's not all that
+
+8
+00:00:17,820 --> 00:00:18,710
+simple
+
+9
+00:00:18,710 --> 00:00:22,170
+well implementing the 2d F of T really
+
+10
+00:00:22,170 --> 00:00:25,350
+is simple the problem is interpreting
+
+11
+00:00:25,350 --> 00:00:27,810
+the results of a 2d Fourier transform
+
+12
+00:00:27,810 --> 00:00:31,140
+and even more complicated is trying to
+
+13
+00:00:31,140 --> 00:00:32,669
+predict what an image might look like
+
+14
+00:00:32,669 --> 00:00:37,200
+based on its 2d FFT power spectrum first
+
+15
+00:00:37,200 --> 00:00:39,000
+let me explain how pictures are
+
+16
+00:00:39,000 --> 00:00:42,030
+represented on computers when you have a
+
+17
+00:00:42,030 --> 00:00:44,219
+picture like this your computer
+
+18
+00:00:44,219 --> 00:00:47,760
+represents this as a matrix and the
+
+19
+00:00:47,760 --> 00:00:50,039
+color in each little matrix element
+
+20
+00:00:50,039 --> 00:00:53,100
+corresponds to a number so in fact the
+
+21
+00:00:53,100 --> 00:00:55,590
+matrix looks like this and you can see
+
+22
+00:00:55,590 --> 00:00:57,899
+that larger numbers have darker colors
+
+23
+00:00:57,899 --> 00:01:01,170
+now when you have data organized in a
+
+24
+00:01:01,170 --> 00:01:05,129
+matrix like this the 2d FFT works by
+
+25
+00:01:05,129 --> 00:01:08,490
+first taking a one-dimensional FFT along
+
+26
+00:01:08,490 --> 00:01:11,340
+the columns of this matrix and this
+
+27
+00:01:11,340 --> 00:01:14,310
+produces a matrix of one dimensional
+
+28
+00:01:14,310 --> 00:01:16,890
+Fourier coefficients and that you can
+
+29
+00:01:16,890 --> 00:01:20,430
+see in this image frequency is on the y
+
+30
+00:01:20,430 --> 00:01:24,619
+axis the top row is the DC component and
+
+31
+00:01:24,619 --> 00:01:27,270
+all of these values are Fourier
+
+32
+00:01:27,270 --> 00:01:30,060
+coefficients for the Fourier transform
+
+33
+00:01:30,060 --> 00:01:33,360
+from each column the next step is to
+
+34
+00:01:33,360 --> 00:01:36,930
+perform a 1d FFT on the rows of this
+
+35
+00:01:36,930 --> 00:01:39,869
+matrix the result of this step is a two
+
+36
+00:01:39,869 --> 00:01:42,090
+dimensional matrix of Fourier
+
+37
+00:01:42,090 --> 00:01:44,850
+coefficients in this matrix the
+
+38
+00:01:44,850 --> 00:01:47,220
+low-frequency coefficients are around
+
+39
+00:01:47,220 --> 00:01:49,710
+the edges and the corners while the
+
+40
+00:01:49,710 --> 00:01:52,700
+Nyquist is at the center of the matrix
+
+41
+00:01:52,700 --> 00:01:55,500
+you'll recall that in a previous video I
+
+42
+00:01:55,500 --> 00:01:57,930
+showed that in some disciplines people
+
+43
+00:01:57,930 --> 00:02:00,990
+show the 1d power spectrum with DC in
+
+44
+00:02:00,990 --> 00:02:03,060
+the middle negative frequencies on the
+
+45
+00:02:03,060 --> 00:02:04,950
+left and positive frequencies on the
+
+46
+00:02:04,950 --> 00:02:08,220
+right for images shifting the
+
+47
+00:02:08,220 --> 00:02:10,410
+coefficients so that the Nyquist
+
+48
+00:02:10,410 --> 00:02:12,700
+frequency is at the edge
+
+49
+00:02:12,700 --> 00:02:15,670
+and the low frequencies are in the
+
+50
+00:02:15,670 --> 00:02:19,060
+middle is almost always done so
+
+51
+00:02:19,060 --> 00:02:21,310
+typically the image power spectra are
+
+52
+00:02:21,310 --> 00:02:24,069
+shown with low frequencies in the center
+
+53
+00:02:24,069 --> 00:02:26,500
+moving out towards higher frequencies
+
+54
+00:02:26,500 --> 00:02:28,890
+and Nyquist in the corner
+
+55
+00:02:28,890 --> 00:02:31,150
+computationally that's really all there
+
+56
+00:02:31,150 --> 00:02:33,940
+is to the 2d Fourier transform what's
+
+57
+00:02:33,940 --> 00:02:36,250
+tricky is figuring out how to map the
+
+58
+00:02:36,250 --> 00:02:39,370
+features of an image onto locations in
+
+59
+00:02:39,370 --> 00:02:42,849
+the 2d Fourier plane and you know when
+
+60
+00:02:42,849 --> 00:02:45,280
+people teach the 2d Fourier transform
+
+61
+00:02:45,280 --> 00:02:47,290
+they typically jump immediately straight
+
+62
+00:02:47,290 --> 00:02:49,989
+into showing power spectra of natural
+
+63
+00:02:49,989 --> 00:02:52,540
+images but I think it's better to start
+
+64
+00:02:52,540 --> 00:02:55,420
+with really simple images and first to
+
+65
+00:02:55,420 --> 00:02:57,400
+try to build a bit of intuition about
+
+66
+00:02:57,400 --> 00:03:00,360
+how to interpret the 2d Fourier plane
+
+67
+00:03:00,360 --> 00:03:02,739
+therefore what I'm going to do in the
+
+68
+00:03:02,739 --> 00:03:04,840
+rest of this video is show examples of
+
+69
+00:03:04,840 --> 00:03:08,319
+how spatial frequency phase and location
+
+70
+00:03:08,319 --> 00:03:12,390
+affect the 2d Fourier transform in
+
+71
+00:03:12,390 --> 00:03:15,549
+MATLAB I've set up a movie to illustrate
+
+72
+00:03:15,549 --> 00:03:18,070
+the relationship between frequency of a
+
+73
+00:03:18,070 --> 00:03:20,980
+2d sine wave and its representation in
+
+74
+00:03:20,980 --> 00:03:24,130
+the 2d Fourier plane before running this
+
+75
+00:03:24,130 --> 00:03:26,049
+simulation I'll show you the layout of
+
+76
+00:03:26,049 --> 00:03:28,420
+the main figure so this is the image
+
+77
+00:03:28,420 --> 00:03:31,480
+it's a 2d sine wave which is sometimes
+
+78
+00:03:31,480 --> 00:03:34,350
+also called a sine plane or a gradient
+
+79
+00:03:34,350 --> 00:03:37,060
+you can see that along this dimension
+
+80
+00:03:37,060 --> 00:03:40,209
+it's a sine wave and along this
+
+81
+00:03:40,209 --> 00:03:43,720
+dimension it's just straight lines this
+
+82
+00:03:43,720 --> 00:03:46,420
+is the 2d amplitude spectrum of this
+
+83
+00:03:46,420 --> 00:03:50,410
+image and this is the phase spectrum and
+
+84
+00:03:50,410 --> 00:03:53,049
+when I run this code you'll see that the
+
+85
+00:03:53,049 --> 00:03:54,579
+sine wave is going to change in
+
+86
+00:03:54,579 --> 00:03:56,799
+frequency over time as will the
+
+87
+00:03:56,799 --> 00:03:59,950
+amplitude and phase spectra and here
+
+88
+00:03:59,950 --> 00:04:01,959
+what I'm going to do is hold the phase
+
+89
+00:04:01,959 --> 00:04:04,269
+which is the orientation of this
+
+90
+00:04:04,269 --> 00:04:06,880
+gradient constant and change only the
+
+91
+00:04:06,880 --> 00:04:10,180
+spatial frequency this is like a real
+
+92
+00:04:10,180 --> 00:04:12,760
+scientific experiment where you hold as
+
+93
+00:04:12,760 --> 00:04:15,069
+many variables constant as possible and
+
+94
+00:04:15,069 --> 00:04:17,260
+you change only one variable at a time
+
+95
+00:04:17,260 --> 00:04:19,720
+in order to understand the effects of
+
+96
+00:04:19,720 --> 00:04:22,360
+that variable independent of all the
+
+97
+00:04:22,360 --> 00:04:24,880
+other variables
+
+98
+00:04:24,880 --> 00:04:27,160
+now you can watch this video and you can
+
+99
+00:04:27,160 --> 00:04:29,650
+see that as the spatial frequency of the
+
+100
+00:04:29,650 --> 00:04:33,100
+sine waves increases the peaks in the
+
+101
+00:04:33,100 --> 00:04:35,860
+amplitude spectrum move further away
+
+102
+00:04:35,860 --> 00:04:43,110
+from the origin I'll run it again
+
+103
+00:04:43,110 --> 00:04:45,970
+you can also see some changes in the
+
+104
+00:04:45,970 --> 00:04:48,520
+width of this peak but this is actually
+
+105
+00:04:48,520 --> 00:04:50,560
+not a really interesting feature it's
+
+106
+00:04:50,560 --> 00:04:52,750
+just due to the non-stationarity x'
+
+107
+00:04:52,750 --> 00:04:55,240
+related to the spatial frequencies
+
+108
+00:04:55,240 --> 00:04:58,750
+relative to the size of this image you
+
+109
+00:04:58,750 --> 00:05:00,100
+would see the same thing in the time
+
+110
+00:05:00,100 --> 00:05:02,230
+domain in the amplitude spectrum of a
+
+111
+00:05:02,230 --> 00:05:04,750
+sine wave that has non integer number of
+
+112
+00:05:04,750 --> 00:05:08,680
+cycles in the time window the phase
+
+113
+00:05:08,680 --> 00:05:10,660
+spectrum initially looks like it's
+
+114
+00:05:10,660 --> 00:05:12,520
+changing a lot and like it's really
+
+115
+00:05:12,520 --> 00:05:14,560
+granular and there's a lot of noise in
+
+116
+00:05:14,560 --> 00:05:16,810
+it but these are mostly just rounding
+
+117
+00:05:16,810 --> 00:05:18,520
+errors and you shouldn't pay too much
+
+118
+00:05:18,520 --> 00:05:21,160
+attention to them to understand where
+
+119
+00:05:21,160 --> 00:05:23,260
+these come from you can refer back to
+
+120
+00:05:23,260 --> 00:05:25,480
+the video about interpreting phase
+
+121
+00:05:25,480 --> 00:05:28,030
+values and the effects of uncertainty
+
+122
+00:05:28,030 --> 00:05:30,670
+and noise when the amplitude is close to
+
+123
+00:05:30,670 --> 00:05:32,980
+zero and you see from the amplitude
+
+124
+00:05:32,980 --> 00:05:35,740
+spectrum that the amplitude is basically
+
+125
+00:05:35,740 --> 00:05:39,790
+zero almost everywhere on this plane one
+
+126
+00:05:39,790 --> 00:05:42,220
+thing I'd like to mention about the
+
+127
+00:05:42,220 --> 00:05:44,680
+units of the spatial frequency that I
+
+128
+00:05:44,680 --> 00:05:47,440
+have here these are arbitrary numbers
+
+129
+00:05:47,440 --> 00:05:49,060
+that I picked because they happen to
+
+130
+00:05:49,060 --> 00:05:50,550
+look good on my computer screen
+
+131
+00:05:50,550 --> 00:05:52,560
+depending on your screen resolution
+
+132
+00:05:52,560 --> 00:05:55,600
+these values may or may not look good
+
+133
+00:05:55,600 --> 00:05:57,640
+so I encourage you to play around with
+
+134
+00:05:57,640 --> 00:06:01,000
+the lower and upper limits until you
+
+135
+00:06:01,000 --> 00:06:03,040
+find something that looks good on your
+
+136
+00:06:03,040 --> 00:06:06,490
+screen this was for sine waves with one
+
+137
+00:06:06,490 --> 00:06:09,730
+specific phase and it's interesting to
+
+138
+00:06:09,730 --> 00:06:11,530
+watch what happens when we change the
+
+139
+00:06:11,530 --> 00:06:14,650
+phase of this 2d sine patch now I'll
+
+140
+00:06:14,650 --> 00:06:18,639
+change the phase to be PI over four
+
+141
+00:06:18,639 --> 00:06:20,889
+you can see that the orientation has
+
+142
+00:06:20,889 --> 00:06:23,259
+changed and importantly the points on
+
+143
+00:06:23,259 --> 00:06:26,169
+the amplitude spectrum are moving on the
+
+144
+00:06:26,169 --> 00:06:28,449
+diagonal now instead of moving on this
+
+145
+00:06:28,449 --> 00:06:31,599
+line here but the behavior is exactly
+
+146
+00:06:31,599 --> 00:06:34,259
+the same they start close to the center
+
+147
+00:06:34,259 --> 00:06:36,580
+corresponding to low frequency sine
+
+148
+00:06:36,580 --> 00:06:38,650
+waves and then they move out towards the
+
+149
+00:06:38,650 --> 00:06:40,990
+edges in this case the corners as the
+
+150
+00:06:40,990 --> 00:06:42,930
+sine wave frequency increases I
+
+151
+00:06:42,930 --> 00:06:45,699
+encourage you to pause the video and
+
+152
+00:06:45,699 --> 00:06:47,979
+experiment with other phase values and
+
+153
+00:06:47,979 --> 00:06:51,460
+other spatial frequency ranges now for
+
+154
+00:06:51,460 --> 00:06:55,990
+the next experiment here I'm going to
+
+155
+00:06:55,990 --> 00:06:58,659
+hold the spatial frequency constant and
+
+156
+00:06:58,659 --> 00:07:01,990
+change the phase values over time so now
+
+157
+00:07:01,990 --> 00:07:04,300
+the sine patch will be just rotating
+
+158
+00:07:04,300 --> 00:07:07,169
+around as if it were the face of a clock
+
+159
+00:07:07,169 --> 00:07:09,490
+actually this would look pretty neat if
+
+160
+00:07:09,490 --> 00:07:13,330
+this were at the face of the clock now
+
+161
+00:07:13,330 --> 00:07:15,099
+notice what's happening in amplitude
+
+162
+00:07:15,099 --> 00:07:18,400
+spectrum the distance from the origin to
+
+163
+00:07:18,400 --> 00:07:21,159
+the peaks is staying the same but the
+
+164
+00:07:21,159 --> 00:07:24,759
+angle relative to the origin is changing
+
+165
+00:07:24,759 --> 00:07:29,560
+over time so this experiment is
+
+166
+00:07:29,560 --> 00:07:32,430
+complementary to the previous experiment
+
+167
+00:07:32,430 --> 00:07:35,199
+again I encourage you to pause the video
+
+168
+00:07:35,199 --> 00:07:38,080
+and rerun the code with different values
+
+169
+00:07:38,080 --> 00:07:42,240
+of spatial frequency and different sine
+
+170
+00:07:42,240 --> 00:07:45,729
+phases the third experiment is all about
+
+171
+00:07:45,729 --> 00:07:49,629
+spatial location here I'm using a
+
+172
+00:07:49,629 --> 00:07:52,509
+thresholded 2d gaussian to create a ball
+
+173
+00:07:52,509 --> 00:07:56,139
+that moves around on the plane the size
+
+174
+00:07:56,139 --> 00:07:58,449
+of the ball is constant and therefore
+
+175
+00:07:58,449 --> 00:08:00,490
+the spatial frequency of the ball is
+
+176
+00:08:00,490 --> 00:08:03,399
+constant only the spatial location of
+
+177
+00:08:03,399 --> 00:08:07,689
+the ball will change and now running
+
+178
+00:08:07,689 --> 00:08:09,279
+this code will show that the amplitude
+
+179
+00:08:09,279 --> 00:08:13,089
+spectrum isn't really changing but the
+
+180
+00:08:13,089 --> 00:08:15,879
+phase spectrum is changing in a way that
+
+181
+00:08:15,879 --> 00:08:18,610
+is well beautiful to look at but pretty
+
+182
+00:08:18,610 --> 00:08:22,060
+much impossible to interpret what I mean
+
+183
+00:08:22,060 --> 00:08:24,639
+by that is if I just showed you this
+
+184
+00:08:24,639 --> 00:08:27,759
+phase spectrum you might be able to
+
+185
+00:08:27,759 --> 00:08:29,529
+guess that the stimulus is a circle
+
+186
+00:08:29,529 --> 00:08:31,300
+based on the spatial pattern
+
+187
+00:08:31,300 --> 00:08:33,669
+of the phases but you wouldn't be able
+
+188
+00:08:33,669 --> 00:08:43,959
+to guess where in space the ball is I'll
+
+189
+00:08:43,959 --> 00:08:45,399
+tell you a little bit more about this
+
+190
+00:08:45,399 --> 00:08:47,529
+code just so you know enough to be able
+
+191
+00:08:47,529 --> 00:08:50,350
+to continue exploring it on your own the
+
+192
+00:08:50,350 --> 00:08:54,000
+circle is defined by this gaussian and
+
+193
+00:08:54,000 --> 00:08:57,640
+by this threshold which varies between 0
+
+194
+00:08:57,640 --> 00:08:58,480
+& 1
+
+195
+00:08:58,480 --> 00:09:00,940
+this determines the size of the circle
+
+196
+00:09:00,940 --> 00:09:04,390
+and here whatever values are subtracted
+
+197
+00:09:04,390 --> 00:09:07,750
+off of the x and y matrices correspond
+
+198
+00:09:07,750 --> 00:09:11,560
+to the center of the circle so in this
+
+199
+00:09:11,560 --> 00:09:14,380
+video I introduced you to the 2d Fourier
+
+200
+00:09:14,380 --> 00:09:17,110
+transform I explained mechanistically
+
+201
+00:09:17,110 --> 00:09:19,720
+how it works by applying the 1d Fourier
+
+202
+00:09:19,720 --> 00:09:22,720
+transform first to the columns of a
+
+203
+00:09:22,720 --> 00:09:24,579
+matrix and then to the rows of the
+
+204
+00:09:24,579 --> 00:09:27,760
+resulting fft coefficient matrix I then
+
+205
+00:09:27,760 --> 00:09:30,130
+showed several movies in MATLAB to help
+
+206
+00:09:30,130 --> 00:09:32,070
+you understand the relationship between
+
+207
+00:09:32,070 --> 00:09:35,709
+spatial frequency phase spatial location
+
+208
+00:09:35,709 --> 00:09:37,930
+and the results of the 2d Fourier
+
+209
+00:09:37,930 --> 00:09:40,500
+transform
+

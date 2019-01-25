@@ -1,0 +1,672 @@
+﻿1
+00:00:00,030 --> 00:00:02,399
+here we are again everybody is Tony and
+
+2
+00:00:02,399 --> 00:00:04,259
+Ian from Tektronix nice to see you guys
+
+3
+00:00:04,259 --> 00:00:06,680
+are back we're going to do a video on
+
+4
+00:00:06,680 --> 00:00:09,330
+FFT that's right the fast Fourier
+
+5
+00:00:09,330 --> 00:00:11,040
+transform okay
+
+6
+00:00:11,040 --> 00:00:13,200
+so just what is it the ends just a
+
+7
+00:00:13,200 --> 00:00:14,519
+different way of looking at your signal
+
+8
+00:00:14,519 --> 00:00:16,139
+on oscilloscopes we're used to looking
+
+9
+00:00:16,139 --> 00:00:18,210
+at voltage changing over time
+
+10
+00:00:18,210 --> 00:00:21,990
+FFT just shows you instead what voltages
+
+11
+00:00:21,990 --> 00:00:24,689
+are present at each frequency I get that
+
+12
+00:00:24,689 --> 00:00:26,390
+that's a good okay
+
+13
+00:00:26,390 --> 00:00:29,070
+so this is the kind of a clear way of
+
+14
+00:00:29,070 --> 00:00:30,929
+looking at this right if you can imagine
+
+15
+00:00:30,929 --> 00:00:32,820
+your signal as a bunch of wire tangled
+
+16
+00:00:32,820 --> 00:00:35,790
+together the FFT just helps you untangle
+
+17
+00:00:35,790 --> 00:00:37,950
+it and see what it's made up see what
+
+18
+00:00:37,950 --> 00:00:40,110
+components are lurking in that signal my
+
+19
+00:00:40,110 --> 00:00:42,390
+tangled hair exactly hey what are you
+
+20
+00:00:42,390 --> 00:00:42,750
+saying
+
+21
+00:00:42,750 --> 00:00:45,510
+yeah no you're okay okay I used
+
+22
+00:00:45,510 --> 00:00:48,300
+conditioner this morning come on so
+
+23
+00:00:48,300 --> 00:00:49,410
+let's say you're designing a circuit
+
+24
+00:00:49,410 --> 00:00:51,329
+you're going to send some RF energy out
+
+25
+00:00:51,329 --> 00:00:54,180
+an antenna so you're going to pull out
+
+26
+00:00:54,180 --> 00:00:55,920
+that into in a plug in a BNC cable
+
+27
+00:00:55,920 --> 00:00:58,500
+connect it to your scope now because
+
+28
+00:00:58,500 --> 00:01:00,390
+you're generating a sine wave you expect
+
+29
+00:01:00,390 --> 00:01:03,180
+to see the voltage changing sinusoidal e
+
+30
+00:01:03,180 --> 00:01:05,280
+over time and that would be represented
+
+31
+00:01:05,280 --> 00:01:08,310
+in the FFT by one spike because there's
+
+32
+00:01:08,310 --> 00:01:10,680
+one frequency exactly you got it already
+
+33
+00:01:10,680 --> 00:01:12,900
+happen excellent but imagine that you
+
+34
+00:01:12,900 --> 00:01:14,670
+plug this into what you actually see is
+
+35
+00:01:14,670 --> 00:01:17,280
+a second spike right here that is
+
+36
+00:01:17,280 --> 00:01:18,990
+excellent and you wouldn't see that
+
+37
+00:01:18,990 --> 00:01:20,490
+right there the sine wave because it's
+
+38
+00:01:20,490 --> 00:01:23,009
+so low level it's such a miniscule
+
+39
+00:01:23,009 --> 00:01:24,720
+second signal that you have to have
+
+40
+00:01:24,720 --> 00:01:26,189
+something like the FFT to bring it out
+
+41
+00:01:26,189 --> 00:01:27,600
+there's no way I could have seen that
+
+42
+00:01:27,600 --> 00:01:30,630
+and on a real scope you'd look and you'd
+
+43
+00:01:30,630 --> 00:01:32,759
+find out well if I'm expecting 900
+
+44
+00:01:32,759 --> 00:01:35,820
+megahertz and I got 1800 megahertz
+
+45
+00:01:35,820 --> 00:01:37,740
+that's a harmonic I probably have some
+
+46
+00:01:37,740 --> 00:01:39,960
+harmonic distortion there are other
+
+47
+00:01:39,960 --> 00:01:42,030
+causes and this isn't just Photoshop
+
+48
+00:01:42,030 --> 00:01:44,189
+this is this is this is real right there
+
+49
+00:01:44,189 --> 00:01:44,579
+either
+
+50
+00:01:44,579 --> 00:01:46,560
+arrows photoshopped I can't believe that
+
+51
+00:01:46,560 --> 00:01:48,570
+it's so good so there are some other
+
+52
+00:01:48,570 --> 00:01:50,430
+common causes of interference we're just
+
+53
+00:01:50,430 --> 00:01:52,409
+going to kind of let those sit on the
+
+54
+00:01:52,409 --> 00:01:54,210
+slide for a second so that after the end
+
+55
+00:01:54,210 --> 00:01:55,860
+of the video you can jump back here and
+
+56
+00:01:55,860 --> 00:01:57,659
+you thought it was harmonic because
+
+57
+00:01:57,659 --> 00:01:59,399
+where it was at exactly the frequent if
+
+58
+00:01:59,399 --> 00:02:00,570
+it were somewhere else maybe would have
+
+59
+00:02:00,570 --> 00:02:02,100
+been crosstalk from a clock signal
+
+60
+00:02:02,100 --> 00:02:05,909
+that's really handy so let's talk about
+
+61
+00:02:05,909 --> 00:02:08,009
+how it actually works there's this
+
+62
+00:02:08,009 --> 00:02:10,000
+beautiful property of mathematic
+
+63
+00:02:10,000 --> 00:02:13,550
+where every signal can be thought of as
+
+64
+00:02:13,550 --> 00:02:16,220
+the sum of a bunch of sine waves did you
+
+65
+00:02:16,220 --> 00:02:17,960
+hear him he said every sec any signal
+
+66
+00:02:17,960 --> 00:02:19,640
+you want any shape name is shave let's
+
+67
+00:02:19,640 --> 00:02:21,140
+do the square wave square wave by
+
+68
+00:02:21,140 --> 00:02:22,640
+coincidence that's what's on this next
+
+69
+00:02:22,640 --> 00:02:26,090
+card yes even yes Tony even a square
+
+70
+00:02:26,090 --> 00:02:28,700
+wave is the sum of a bunch of sideways
+
+71
+00:02:28,700 --> 00:02:30,950
+let's see how that works if we wanted to
+
+72
+00:02:30,950 --> 00:02:33,200
+make a square wave by adding together a
+
+73
+00:02:33,200 --> 00:02:35,540
+bunch of sine waves we'd start with a
+
+74
+00:02:35,540 --> 00:02:41,600
+single sine wave how smooth yeah very
+
+75
+00:02:41,600 --> 00:02:43,250
+smooth it's almost like we've done a
+
+76
+00:02:43,250 --> 00:02:45,680
+bunch of failed take to this video no
+
+77
+00:02:45,680 --> 00:02:48,020
+way so if we add a sine wave to nothing
+
+78
+00:02:48,020 --> 00:02:52,550
+we get a sine wave okay 1 2 1
+
+79
+00:02:52,550 --> 00:02:54,470
+I got it in it right and that would
+
+80
+00:02:54,470 --> 00:02:57,620
+cause a single spike to appear in the
+
+81
+00:02:57,620 --> 00:03:00,020
+frequency domain now we're going to add
+
+82
+00:03:00,020 --> 00:03:03,200
+a second sine wave that's 1/3 as tall
+
+83
+00:03:03,200 --> 00:03:06,380
+and it's been scaled in by 1/3 and this
+
+84
+00:03:06,380 --> 00:03:08,420
+is the mathematical part this is like
+
+85
+00:03:08,420 --> 00:03:10,310
+there's two humps within this big one
+
+86
+00:03:10,310 --> 00:03:12,290
+yes exactly when we add those two
+
+87
+00:03:12,290 --> 00:03:14,980
+together that's going to add a little
+
+88
+00:03:14,980 --> 00:03:20,390
+yeah as you say that's going to add a
+
+89
+00:03:20,390 --> 00:03:21,830
+little hump at the top and bottom of
+
+90
+00:03:21,830 --> 00:03:23,269
+each of these and in the frequency
+
+91
+00:03:23,269 --> 00:03:25,450
+domain here because it's two sine waves
+
+92
+00:03:25,450 --> 00:03:28,220
+that's two peaks so let's add a third
+
+93
+00:03:28,220 --> 00:03:31,580
+one instead of this one being scaled by
+
+94
+00:03:31,580 --> 00:03:36,290
+a third it's scaled by a fifth I see and
+
+95
+00:03:36,290 --> 00:03:37,610
+when we add that it's going to add even
+
+96
+00:03:37,610 --> 00:03:40,820
+more wiggles it's going to make the size
+
+97
+00:03:40,820 --> 00:03:43,880
+steeper it's going to make the tops and
+
+98
+00:03:43,880 --> 00:03:46,130
+bottoms flatter and you notice we're
+
+99
+00:03:46,130 --> 00:03:48,190
+kind of closing in on a square wave here
+
+100
+00:03:48,190 --> 00:03:51,049
+so then we go to a cell get squared up
+
+101
+00:03:51,049 --> 00:03:53,540
+here Oh terrible okay we're going to a
+
+102
+00:03:53,540 --> 00:03:55,700
+seventh and one night to 111th and so on
+
+103
+00:03:55,700 --> 00:04:00,140
+and so we keep adding Peaks until it
+
+104
+00:04:00,140 --> 00:04:01,549
+kind of vanishes down into the noise
+
+105
+00:04:01,549 --> 00:04:04,640
+floor oh yeah and we recognize that that
+
+106
+00:04:04,640 --> 00:04:05,890
+goes down like that
+
+107
+00:04:05,890 --> 00:04:08,150
+now let's hang on to this guard we'll
+
+108
+00:04:08,150 --> 00:04:09,530
+compare it with the real scope in a
+
+109
+00:04:09,530 --> 00:04:11,870
+minute okay so real world signals have
+
+110
+00:04:11,870 --> 00:04:13,760
+the same property they might look like a
+
+111
+00:04:13,760 --> 00:04:16,579
+tingle in the time domain and then a
+
+112
+00:04:16,579 --> 00:04:18,500
+nice neat shape well it's just probably
+
+113
+00:04:18,500 --> 00:04:19,549
+something here from
+
+114
+00:04:19,549 --> 00:04:21,650
+with lots of tangled signals yes how to
+
+115
+00:04:21,650 --> 00:04:24,199
+break them down so let's see this on our
+
+116
+00:04:24,199 --> 00:04:27,229
+real scope yeah let's take that away so
+
+117
+00:04:27,229 --> 00:04:28,370
+we're gonna see what this looks like on
+
+118
+00:04:28,370 --> 00:04:31,370
+a traditional oscilloscope first most
+
+119
+00:04:31,370 --> 00:04:33,740
+modern oscilloscopes have an FFT feature
+
+120
+00:04:33,740 --> 00:04:36,770
+they're usually the math system so we're
+
+121
+00:04:36,770 --> 00:04:41,479
+going to press math FFT and right away
+
+122
+00:04:41,479 --> 00:04:44,000
+you can see that signal tapering way off
+
+123
+00:04:44,000 --> 00:04:45,530
+down in the noise floor but let's zoom
+
+124
+00:04:45,530 --> 00:04:47,150
+in on that a little bit it's like in our
+
+125
+00:04:47,150 --> 00:04:55,220
+drawing right tapers off yes so you can
+
+126
+00:04:55,220 --> 00:04:57,139
+see that tapering off there in fact I'll
+
+127
+00:04:57,139 --> 00:05:00,919
+move it down a little bit sure you know
+
+128
+00:05:00,919 --> 00:05:02,300
+your way around this house cope don't
+
+129
+00:05:02,300 --> 00:05:05,240
+you this one feature I do so can we get
+
+130
+00:05:05,240 --> 00:05:07,180
+the card that we haven't you earlier
+
+131
+00:05:07,180 --> 00:05:10,430
+there you go you see that looks pretty
+
+132
+00:05:10,430 --> 00:05:13,639
+much like the FFT there I see that angle
+
+133
+00:05:13,639 --> 00:05:15,800
+and I see the angle all right genius
+
+134
+00:05:15,800 --> 00:05:17,719
+there's another class of instruments
+
+135
+00:05:17,719 --> 00:05:20,360
+that also do a lot of FFTs and that's
+
+136
+00:05:20,360 --> 00:05:23,659
+spectrum analyzers and this is so scope
+
+137
+00:05:23,659 --> 00:05:25,009
+the mixed domain oscilloscope has a
+
+138
+00:05:25,009 --> 00:05:26,180
+little bit of spectrum analyzer
+
+139
+00:05:26,180 --> 00:05:28,969
+personality built-in and it can do a
+
+140
+00:05:28,969 --> 00:05:31,460
+fifties as well mixed domain mix so many
+
+141
+00:05:31,460 --> 00:05:33,500
+things going together so we've got Italy
+
+142
+00:05:33,500 --> 00:05:36,409
+handy sorry okay we hope it is so we've
+
+143
+00:05:36,409 --> 00:05:37,880
+got one signal going to both the
+
+144
+00:05:37,880 --> 00:05:39,259
+traditional scope channel and this
+
+145
+00:05:39,259 --> 00:05:41,719
+dedicated spectrum analyzer channel I'm
+
+146
+00:05:41,719 --> 00:05:44,300
+going to turn that on oh and right away
+
+147
+00:05:44,300 --> 00:05:46,130
+you see a difference I do yeah
+
+148
+00:05:46,130 --> 00:05:48,469
+both types of views are right there
+
+149
+00:05:48,469 --> 00:05:49,729
+exactly we've got the frequency domain
+
+150
+00:05:49,729 --> 00:05:51,949
+view in a separate view and you can see
+
+151
+00:05:51,949 --> 00:05:54,919
+that second peak stands right out and
+
+152
+00:05:54,919 --> 00:05:57,050
+we've even marked it and identified that
+
+153
+00:05:57,050 --> 00:05:59,240
+it's spaced from the original 900
+
+154
+00:05:59,240 --> 00:06:01,069
+megahertz by 900 megahertz and it's down
+
+155
+00:06:01,069 --> 00:06:04,069
+about 25 dB so you put the marker in
+
+156
+00:06:04,069 --> 00:06:05,449
+here or did it mark it for you it marked
+
+157
+00:06:05,449 --> 00:06:07,789
+it for us so that tells us it's probably
+
+158
+00:06:07,789 --> 00:06:09,710
+harmonic distortion so this concludes
+
+159
+00:06:09,710 --> 00:06:12,289
+our video on FFT yes there's more right
+
+160
+00:06:12,289 --> 00:06:13,219
+there's more if you want to learn more
+
+161
+00:06:13,219 --> 00:06:15,469
+about FFTs you can go to Tektronix comm
+
+162
+00:06:15,469 --> 00:06:18,979
+slash FFT - basics and there's a lot of
+
+163
+00:06:18,979 --> 00:06:21,440
+stuff there yes and also stay tuned for
+
+164
+00:06:21,440 --> 00:06:23,180
+the next video of this series where we
+
+165
+00:06:23,180 --> 00:06:23,689
+do
+
+166
+00:06:23,689 --> 00:06:26,029
+FFT of a musical signal in front of a
+
+167
+00:06:26,029 --> 00:06:28,459
+live audience that sounds great see you
+
+168
+00:06:28,459 --> 00:06:31,330
+around okay thanks
+

@@ -1,0 +1,1164 @@
+﻿1
+00:00:00,030 --> 00:00:01,230
+the discrete Fourier transform is
+
+2
+00:00:01,230 --> 00:00:03,600
+fundamental to many questions in science
+
+3
+00:00:03,600 --> 00:00:06,359
+and technology and naturally we want to
+
+4
+00:00:06,359 --> 00:00:08,069
+be able to compute the discrete Fourier
+
+5
+00:00:08,069 --> 00:00:10,710
+transform fast the classical way to do
+
+6
+00:00:10,710 --> 00:00:13,830
+that is the so called FFT offer so the
+
+7
+00:00:13,830 --> 00:00:15,960
+FFT algorithms for the fast Fourier
+
+8
+00:00:15,960 --> 00:00:18,960
+transform algorithm was first designed
+
+9
+00:00:18,960 --> 00:00:21,480
+in 1965 by Cooley and two geeks it's
+
+10
+00:00:21,480 --> 00:00:23,430
+also known as cool into key algorithm
+
+11
+00:00:23,430 --> 00:00:25,920
+and has led to a revolution in digital
+
+12
+00:00:25,920 --> 00:00:27,630
+signal processing this is Michael
+
+13
+00:00:27,630 --> 00:00:29,609
+capitalist messaging professor of the IT
+
+14
+00:00:29,609 --> 00:00:32,189
+security PSL and it did the Fourier
+
+15
+00:00:32,189 --> 00:00:35,250
+transform is central to our information
+
+16
+00:00:35,250 --> 00:00:38,040
+age as a result performing the Fourier
+
+17
+00:00:38,040 --> 00:00:40,110
+transform in a fast and efficient manner
+
+18
+00:00:40,110 --> 00:00:41,550
+has been one of the greatest
+
+19
+00:00:41,550 --> 00:00:43,620
+breakthroughs of computer science
+
+20
+00:00:43,620 --> 00:00:45,980
+professor Draper's trying of MIG
+
+21
+00:00:45,980 --> 00:00:48,770
+described the fast Fourier transform as
+
+22
+00:00:48,770 --> 00:00:52,140
+the most important numerical algorithm
+
+23
+00:00:52,140 --> 00:00:56,430
+of our lifetime but why is the Fourier
+
+24
+00:00:56,430 --> 00:00:59,100
+transform so central to our modern world
+
+25
+00:00:59,100 --> 00:01:01,109
+those transfer was really fundamental to
+
+26
+00:01:01,109 --> 00:01:03,180
+numerous areas of science and technology
+
+27
+00:01:03,180 --> 00:01:06,090
+can think of signal processing data
+
+28
+00:01:06,090 --> 00:01:09,720
+analysis medical imaging and perhaps the
+
+29
+00:01:09,720 --> 00:01:12,479
+very well-known example of image and
+
+30
+00:01:12,479 --> 00:01:14,130
+video compression schemes so think of
+
+31
+00:01:14,130 --> 00:01:17,400
+JPEG do you know what JPEG is don't you
+
+32
+00:01:17,400 --> 00:01:21,810
+what about mp3 these are digital formats
+
+33
+00:01:21,810 --> 00:01:24,180
+for images and sounds and there are
+
+34
+00:01:24,180 --> 00:01:26,310
+plenty of other formats for videos as
+
+35
+00:01:26,310 --> 00:01:29,130
+well like h.264 which is the one I'm
+
+36
+00:01:29,130 --> 00:01:31,470
+using for this video search audio-visual
+
+37
+00:01:31,470 --> 00:01:33,570
+files are opened by each and every one
+
+38
+00:01:33,570 --> 00:01:36,360
+of us every day and every time you're
+
+39
+00:01:36,360 --> 00:01:38,759
+looking at a digital picture every time
+
+40
+00:01:38,759 --> 00:01:40,619
+you're listening to digital music and
+
+41
+00:01:40,619 --> 00:01:43,110
+every time you're playing a digital
+
+42
+00:01:43,110 --> 00:01:47,159
+video some FFT algorithm will be running
+
+43
+00:01:47,159 --> 00:01:50,100
+in the background as Richard Branagh a
+
+44
+00:01:50,100 --> 00:01:53,399
+professor of Rice University puts it FFT
+
+45
+00:01:53,399 --> 00:01:57,899
+over billions of times a day but how
+
+46
+00:01:57,899 --> 00:02:00,079
+does the Fourier transform help with
+
+47
+00:02:00,079 --> 00:02:02,369
+audio-visual compression in many
+
+48
+00:02:02,369 --> 00:02:06,500
+applications we acquire signals and
+
+49
+00:02:06,500 --> 00:02:09,149
+continues to me but these signals are
+
+50
+00:02:09,149 --> 00:02:11,150
+usually sampled at discrete intervals
+
+51
+00:02:11,150 --> 00:02:13,480
+analog to digital converter
+
+52
+00:02:13,480 --> 00:02:15,610
+so once the signal is digitized or
+
+53
+00:02:15,610 --> 00:02:18,820
+sampled the question becomes can we
+
+54
+00:02:18,820 --> 00:02:20,530
+compute the discrete Fourier transform
+
+55
+00:02:20,530 --> 00:02:22,540
+of that signal this is by opposition to
+
+56
+00:02:22,540 --> 00:02:24,700
+the classical continuous Fourier
+
+57
+00:02:24,700 --> 00:02:27,490
+transform that we studied by French
+
+58
+00:02:27,490 --> 00:02:29,770
+mathematician Joseph Fourier and others
+
+59
+00:02:29,770 --> 00:02:33,460
+in the early 1800s these days we rather
+
+60
+00:02:33,460 --> 00:02:36,580
+focus on digital data and that's all we
+
+61
+00:02:36,580 --> 00:02:39,130
+rather care about the discrete Fourier
+
+62
+00:02:39,130 --> 00:02:41,560
+transform now if we are trying to
+
+63
+00:02:41,560 --> 00:02:43,750
+compress an image using the JPEG method
+
+64
+00:02:43,750 --> 00:02:46,300
+what we would like to do is just say I
+
+65
+00:02:46,300 --> 00:02:48,130
+take an image I take the Fourier
+
+66
+00:02:48,130 --> 00:02:50,080
+transform of that image and then it
+
+67
+00:02:50,080 --> 00:02:52,900
+turns out that for most images because
+
+68
+00:02:52,900 --> 00:02:54,870
+these images are smooth in time domain
+
+69
+00:02:54,870 --> 00:02:57,310
+the Fourier domain representation is
+
+70
+00:02:57,310 --> 00:02:59,740
+fairly compact so just truncate to the
+
+71
+00:02:59,740 --> 00:03:02,740
+top few coefficients and magnitude zero
+
+72
+00:03:02,740 --> 00:03:04,390
+out the rest and hence we achieve
+
+73
+00:03:04,390 --> 00:03:06,090
+compression let's explain a bit more
+
+74
+00:03:06,090 --> 00:03:08,920
+signals like images and sounds can be
+
+75
+00:03:08,920 --> 00:03:11,440
+regarded as one way of representing some
+
+76
+00:03:11,440 --> 00:03:14,350
+fundamental mathematical objects the
+
+77
+00:03:14,350 --> 00:03:16,120
+free transform allows us to look at
+
+78
+00:03:16,120 --> 00:03:18,280
+these fundamental mathematical objects
+
+79
+00:03:18,280 --> 00:03:21,130
+through a different angle there by
+
+80
+00:03:21,130 --> 00:03:24,280
+objects that look awfully complicated in
+
+81
+00:03:24,280 --> 00:03:26,940
+the signal domain can suddenly appear
+
+82
+00:03:26,940 --> 00:03:29,800
+amazingly simple and easy to describe in
+
+83
+00:03:29,800 --> 00:03:32,050
+the Fourier co-main this will be the
+
+84
+00:03:32,050 --> 00:03:33,760
+case when the signal in the Fourier
+
+85
+00:03:33,760 --> 00:03:37,030
+domain is mostly zeros in which case we
+
+86
+00:03:37,030 --> 00:03:39,010
+don't even need to recall the zero
+
+87
+00:03:39,010 --> 00:03:42,280
+values we can just store in memory the
+
+88
+00:03:42,280 --> 00:03:44,740
+nonzero values which means that we need
+
+89
+00:03:44,740 --> 00:03:47,709
+less memory space to record our signal
+
+90
+00:03:47,709 --> 00:03:50,830
+but why would the fully a representation
+
+91
+00:03:50,830 --> 00:03:54,400
+of images and sound be so nice and
+
+92
+00:03:54,400 --> 00:03:56,980
+compact in the Fourier domain so if we
+
+93
+00:03:56,980 --> 00:03:59,830
+think of a case for signal and Fourier
+
+94
+00:03:59,830 --> 00:04:02,170
+domain all this is a signal that is
+
+95
+00:04:02,170 --> 00:04:05,410
+basically a sum of a small number of
+
+96
+00:04:05,410 --> 00:04:08,110
+pure harmonics plus mainly some amount
+
+97
+00:04:08,110 --> 00:04:10,720
+of noise and music it's pretty clear why
+
+98
+00:04:10,720 --> 00:04:14,140
+most music are made of only a handful of
+
+99
+00:04:14,140 --> 00:04:17,680
+pure harmony after all that's how music
+
+100
+00:04:17,680 --> 00:04:20,500
+partitions are written each height of a
+
+101
+00:04:20,500 --> 00:04:21,460
+musical note
+
+102
+00:04:21,460 --> 00:04:23,979
+imposes a particular pitch which
+
+103
+00:04:23,979 --> 00:04:26,610
+corresponds to a pure harmonics
+
+104
+00:04:26,610 --> 00:04:28,770
+in fact that's even more than that as
+
+105
+00:04:28,770 --> 00:04:31,379
+depending on instruments each note is
+
+106
+00:04:31,379 --> 00:04:34,770
+accompanied with a tone which is usually
+
+107
+00:04:34,770 --> 00:04:36,810
+itself a combination of a handful of
+
+108
+00:04:36,810 --> 00:04:39,750
+pure harmony however it might be less
+
+109
+00:04:39,750 --> 00:04:42,539
+clear why images are also made of a
+
+110
+00:04:42,539 --> 00:04:45,389
+handful of pure harmony the way JPEG
+
+111
+00:04:45,389 --> 00:04:47,699
+actually works is by first decomposing
+
+112
+00:04:47,699 --> 00:04:50,819
+an overall image into tiny squares now
+
+113
+00:04:50,819 --> 00:04:52,949
+if the resolution of the large image is
+
+114
+00:04:52,949 --> 00:04:55,800
+quite high each tiny square will likely
+
+115
+00:04:55,800 --> 00:04:58,590
+be smooth and nearly homogeneous which
+
+116
+00:04:58,590 --> 00:05:00,810
+means that the frequency representation
+
+117
+00:05:00,810 --> 00:05:03,930
+of such tiny squares will mostly be made
+
+118
+00:05:03,930 --> 00:05:06,870
+of low frequencies both cases it turns
+
+119
+00:05:06,870 --> 00:05:09,569
+out that most of the signal is actually
+
+120
+00:05:09,569 --> 00:05:12,379
+a composition of a handful of
+
+121
+00:05:12,379 --> 00:05:15,360
+frequencies now the other frequencies
+
+122
+00:05:15,360 --> 00:05:18,120
+they are usually not exactly zero
+
+123
+00:05:18,120 --> 00:05:20,400
+because there's always some noise but as
+
+124
+00:05:20,400 --> 00:05:23,550
+long as this noise these amplitudes of
+
+125
+00:05:23,550 --> 00:05:26,370
+the other frequencies are low and
+
+126
+00:05:26,370 --> 00:05:28,979
+negligible compared to the main signal
+
+127
+00:05:28,979 --> 00:05:32,250
+you can basically just get rid of them
+
+128
+00:05:32,250 --> 00:05:34,529
+just cancel them out without really
+
+129
+00:05:34,529 --> 00:05:37,440
+affecting the quality of the image of
+
+130
+00:05:37,440 --> 00:05:39,509
+the sound now the underlying idea of
+
+131
+00:05:39,509 --> 00:05:41,759
+JPEG is that we take a time domain
+
+132
+00:05:41,759 --> 00:05:43,710
+representation which is the image itself
+
+133
+00:05:43,710 --> 00:05:45,509
+we take the Fourier transform of that
+
+134
+00:05:45,509 --> 00:05:47,460
+and then it turns out but if we just
+
+135
+00:05:47,460 --> 00:05:49,919
+keep the top few coefficients and throw
+
+136
+00:05:49,919 --> 00:05:51,810
+away the rest the image almost doesn't
+
+137
+00:05:51,810 --> 00:05:54,120
+change and how to achieve compression
+
+138
+00:05:54,120 --> 00:05:56,339
+this approach has strong resemblance
+
+139
+00:05:56,339 --> 00:05:58,469
+with machine learning algorithms like
+
+140
+00:05:58,469 --> 00:05:59,189
+pca
+
+141
+00:05:59,189 --> 00:06:02,400
+or a DVD or like the word vector
+
+142
+00:06:02,400 --> 00:06:04,500
+representation we discussed with martin
+
+143
+00:06:04,500 --> 00:06:06,500
+Jaggi this is one reason why the
+
+144
+00:06:06,500 --> 00:06:08,639
+discrete fourier transform is important
+
+145
+00:06:08,639 --> 00:06:11,279
+because for natural signals that arise
+
+146
+00:06:11,279 --> 00:06:13,889
+and applications sort of concentrates
+
+147
+00:06:13,889 --> 00:06:15,839
+their energy in a small number of
+
+148
+00:06:15,839 --> 00:06:18,180
+coefficients and hence just focusing on
+
+149
+00:06:18,180 --> 00:06:19,949
+those coefficients on these coefficients
+
+150
+00:06:19,949 --> 00:06:23,400
+results in savings saying storage saying
+
+151
+00:06:23,400 --> 00:06:26,370
+time etc and the Fourier basis turns out
+
+152
+00:06:26,370 --> 00:06:28,830
+to also be convenient for other reasons
+
+153
+00:06:28,830 --> 00:06:30,930
+and one of these reasons is the fact
+
+154
+00:06:30,930 --> 00:06:32,240
+that
+
+155
+00:06:32,240 --> 00:06:34,800
+convolution the operation of convolving
+
+156
+00:06:34,800 --> 00:06:38,400
+two signals becomes very easy to perform
+
+157
+00:06:38,400 --> 00:06:40,590
+in the fury of the main wait what a
+
+158
+00:06:40,590 --> 00:06:43,020
+convolution and why does it matter
+
+159
+00:06:43,020 --> 00:06:44,520
+so here's one reason for computing
+
+160
+00:06:44,520 --> 00:06:46,710
+convolutions suppose that I have a
+
+161
+00:06:46,710 --> 00:06:49,650
+signal X and from template signal Y and
+
+162
+00:06:49,650 --> 00:06:52,889
+I know that a signal X is basically a
+
+163
+00:06:52,889 --> 00:06:55,440
+shift or maybe a shift of the signal Y
+
+164
+00:06:55,440 --> 00:06:57,900
+and time domain plus perhaps with some
+
+165
+00:06:57,900 --> 00:07:02,220
+annoyed added and what I want is to find
+
+166
+00:07:02,220 --> 00:07:04,770
+out what is the right shift basically
+
+167
+00:07:04,770 --> 00:07:08,820
+that aligns x and y optimally one way to
+
+168
+00:07:08,820 --> 00:07:10,169
+do it is exactly to compute a
+
+169
+00:07:10,169 --> 00:07:11,820
+convolution so what is a convolution
+
+170
+00:07:11,820 --> 00:07:13,680
+convolution is the following operation
+
+171
+00:07:13,680 --> 00:07:16,320
+we take the signal X let me consider all
+
+172
+00:07:16,320 --> 00:07:18,720
+the possible shift of the other signal Y
+
+173
+00:07:18,720 --> 00:07:21,900
+we do the dot product of X and the
+
+174
+00:07:21,900 --> 00:07:23,850
+shifted version of Y we're basically
+
+175
+00:07:23,850 --> 00:07:26,250
+overlay X with a shifted version of Y
+
+176
+00:07:26,250 --> 00:07:29,100
+and check how similar they are but why
+
+177
+00:07:29,100 --> 00:07:31,560
+would we ever want to search for the
+
+178
+00:07:31,560 --> 00:07:34,530
+optimal translation of X that best align
+
+179
+00:07:34,530 --> 00:07:36,449
+with Y and this is actually the
+
+180
+00:07:36,449 --> 00:07:38,940
+operation the GPS devices do when
+
+181
+00:07:38,940 --> 00:07:41,820
+they're receiving a GPS signal cigarette
+
+182
+00:07:41,820 --> 00:07:44,729
+does X perhaps a noisy version of some
+
+183
+00:07:44,729 --> 00:07:47,340
+temporal signal y yes because to locate
+
+184
+00:07:47,340 --> 00:07:49,919
+yourself using GPS you need to measure
+
+185
+00:07:49,919 --> 00:07:52,860
+very precisely the communication delay
+
+186
+00:07:52,860 --> 00:07:56,130
+from the satellite to your phone to do
+
+187
+00:07:56,130 --> 00:07:57,810
+so the satellite will send you a signal
+
+188
+00:07:57,810 --> 00:08:00,570
+Y and you know that it will look like
+
+189
+00:08:00,570 --> 00:08:02,280
+some template eggs
+
+190
+00:08:02,280 --> 00:08:05,400
+measuring the arrival time of Y resent
+
+191
+00:08:05,400 --> 00:08:07,380
+boolean to determining the time
+
+192
+00:08:07,380 --> 00:08:11,250
+translate of X that best matches the
+
+193
+00:08:11,250 --> 00:08:13,830
+signal Y and now the question is can you
+
+194
+00:08:13,830 --> 00:08:15,990
+find the right shift you know if you
+
+195
+00:08:15,990 --> 00:08:18,090
+think of doing this in the direct brute
+
+196
+00:08:18,090 --> 00:08:20,940
+force way if my signal X is of length on
+
+197
+00:08:20,940 --> 00:08:24,270
+my signal Y is of length n then I need
+
+198
+00:08:24,270 --> 00:08:28,260
+to try all the end ship on the other
+
+199
+00:08:28,260 --> 00:08:29,910
+hand so I can switch to the Fourier
+
+200
+00:08:29,910 --> 00:08:31,949
+domain turns out that all that I need to
+
+201
+00:08:31,949 --> 00:08:33,930
+do is take the Fourier transform of X
+
+202
+00:08:33,930 --> 00:08:36,630
+Fourier transform of Y and multiply them
+
+203
+00:08:36,630 --> 00:08:39,270
+point wise and then do the Fourier
+
+204
+00:08:39,270 --> 00:08:41,430
+transform back then in the resulting
+
+205
+00:08:41,430 --> 00:08:43,409
+signal if I look at the peak at the
+
+206
+00:08:43,409 --> 00:08:45,870
+maximum this is the right shift so
+
+207
+00:08:45,870 --> 00:08:47,850
+multiplication is very easy convolution
+
+208
+00:08:47,850 --> 00:08:50,310
+is very important so if we have a way of
+
+209
+00:08:50,310 --> 00:08:51,190
+quick
+
+210
+00:08:51,190 --> 00:08:52,630
+switching from time domain
+
+211
+00:08:52,630 --> 00:08:54,130
+representation to frequency domain
+
+212
+00:08:54,130 --> 00:08:56,740
+representation and we can take x and y
+
+213
+00:08:56,740 --> 00:08:59,230
+compute the Fourier transform multiply
+
+214
+00:08:59,230 --> 00:09:01,060
+them compute the Fourier transform back
+
+215
+00:09:01,060 --> 00:09:03,160
+and we have the convolution of x and y
+
+216
+00:09:03,160 --> 00:09:05,590
+so this is a fast algorithm for
+
+217
+00:09:05,590 --> 00:09:07,270
+performing convolution the Fourier
+
+218
+00:09:07,270 --> 00:09:09,400
+transform is a key algorithm to
+
+219
+00:09:09,400 --> 00:09:11,890
+determine optimal time translation
+
+220
+00:09:11,890 --> 00:09:14,110
+exactly so this is a very efficient way
+
+221
+00:09:14,110 --> 00:09:17,470
+of sort of yes resolving optimal
+
+222
+00:09:17,470 --> 00:09:21,040
+translations of one fragment but make it
+
+223
+00:09:21,040 --> 00:09:23,260
+similar to another citation more
+
+224
+00:09:23,260 --> 00:09:25,690
+generally whenever signals have a lot of
+
+225
+00:09:25,690 --> 00:09:28,810
+time or spatial translation symmetries
+
+226
+00:09:28,810 --> 00:09:31,390
+then convolution and the Fourier
+
+227
+00:09:31,390 --> 00:09:34,710
+transform will be powerful tools to
+
+228
+00:09:34,710 --> 00:09:38,380
+efficiently deal with such symmetries in
+
+229
+00:09:38,380 --> 00:09:40,750
+fact inspired by the architecture of a
+
+230
+00:09:40,750 --> 00:09:43,240
+brain researchers in deep learning have
+
+231
+00:09:43,240 --> 00:09:45,700
+exploited convolution to improve the
+
+232
+00:09:45,700 --> 00:09:48,850
+image processing of venule networks this
+
+233
+00:09:48,850 --> 00:09:51,370
+has led to so called convolutional
+
+234
+00:09:51,370 --> 00:09:53,530
+neural networks as well as key
+
+235
+00:09:53,530 --> 00:09:56,560
+breakthroughs in object detection and
+
+236
+00:09:56,560 --> 00:09:59,290
+face recognition so yes
+
+237
+00:09:59,290 --> 00:10:02,410
+the Fourier transform is a big deal but
+
+238
+00:10:02,410 --> 00:10:04,480
+the fact are also there are also other
+
+239
+00:10:04,480 --> 00:10:06,940
+reasons what we mention mention one to
+
+240
+00:10:06,940 --> 00:10:08,890
+you and this is something that comes up
+
+241
+00:10:08,890 --> 00:10:11,620
+in medical imaging for example when one
+
+242
+00:10:11,620 --> 00:10:15,940
+is performing MRI scan one can view this
+
+243
+00:10:15,940 --> 00:10:17,650
+process as follows so there's this
+
+244
+00:10:17,650 --> 00:10:21,630
+object being scanned the patient and
+
+245
+00:10:21,630 --> 00:10:23,650
+essentially the process of performing
+
+246
+00:10:23,650 --> 00:10:25,840
+MRI scan is that we can think of the
+
+247
+00:10:25,840 --> 00:10:28,540
+patient as a signal in time domain now
+
+248
+00:10:28,540 --> 00:10:31,750
+the MRI machine basically measures fully
+
+249
+00:10:31,750 --> 00:10:34,990
+efficient of the signal X at look at
+
+250
+00:10:34,990 --> 00:10:37,180
+various locations so now the question
+
+251
+00:10:37,180 --> 00:10:40,600
+becomes if I want to scan and scan a
+
+252
+00:10:40,600 --> 00:10:43,660
+signal X or a patient then this is
+
+253
+00:10:43,660 --> 00:10:46,000
+basically the question of reconstructing
+
+254
+00:10:46,000 --> 00:10:48,250
+X from the small number of fully a
+
+255
+00:10:48,250 --> 00:10:50,350
+measurements so this is yet another
+
+256
+00:10:50,350 --> 00:10:52,240
+application where the Fourier transform
+
+257
+00:10:52,240 --> 00:10:53,320
+comes up for completely different
+
+258
+00:10:53,320 --> 00:10:55,420
+reasons just is given by the feta crop
+
+259
+00:10:55,420 --> 00:10:57,730
+across and in fact this is not so
+
+260
+00:10:57,730 --> 00:10:59,950
+different from what our ears do at any
+
+261
+00:10:59,950 --> 00:11:03,300
+point in time for is or made of tiny
+
+262
+00:11:03,300 --> 00:11:06,480
+here each of which can only vibrate at a
+
+263
+00:11:06,480 --> 00:11:09,089
+very specific frequency now because of a
+
+264
+00:11:09,089 --> 00:11:12,180
+physical phenomenon called resonance all
+
+265
+00:11:12,180 --> 00:11:16,040
+hell will vibrate if and only if it
+
+266
+00:11:16,040 --> 00:11:20,160
+feels the pure harmonics associated with
+
+267
+00:11:20,160 --> 00:11:22,680
+its intrinsic frequency and when you
+
+268
+00:11:22,680 --> 00:11:24,540
+think about it this means that our
+
+269
+00:11:24,540 --> 00:11:27,120
+brains are only told about the
+
+270
+00:11:27,120 --> 00:11:29,730
+frequencies of the sounds that our ears
+
+271
+00:11:29,730 --> 00:11:33,420
+hear yet other enjoyable to combine
+
+272
+00:11:33,420 --> 00:11:36,120
+these frequencies to reconstitute the
+
+273
+00:11:36,120 --> 00:11:40,290
+sound that our ears hear our brains
+
+274
+00:11:40,290 --> 00:11:43,529
+apply the Fourier transform all the time
+
+275
+00:11:43,529 --> 00:11:46,500
+so in a nutshell the Fourier transform
+
+276
+00:11:46,500 --> 00:11:49,529
+has a lot a lot a lot of applications
+
+277
+00:11:49,529 --> 00:11:51,690
+with barely scratched the surface in
+
+278
+00:11:51,690 --> 00:11:54,149
+this video and because of it took the
+
+279
+00:11:54,149 --> 00:11:56,310
+fast Fourier transform by Korean Turkey
+
+280
+00:11:56,310 --> 00:12:00,269
+has conquered the world but what if I
+
+281
+00:12:00,269 --> 00:12:02,610
+were to tell you that Korean turkeys
+
+282
+00:12:02,610 --> 00:12:06,800
+algorithm has recently been out perfect
+
+283
+00:12:06,800 --> 00:12:10,649
+well this is what we shall discuss next
+
+284
+00:12:10,649 --> 00:12:17,730
+time
+
+285
+00:12:17,730 --> 00:12:19,619
+that's where the Fourier transform comes
+
+286
+00:12:19,619 --> 00:12:21,929
+in it comes up with a way to estimate
+
+287
+00:12:21,929 --> 00:12:23,639
+the functions on the whole real line
+
+288
+00:12:23,639 --> 00:12:26,249
+using complex Exponential's this
+
+289
+00:12:26,249 --> 00:12:28,919
+algorithm runs in time about log squared
+
+290
+00:12:28,919 --> 00:12:31,169
+n so it doesn't even look at the entire
+
+291
+00:12:31,169 --> 00:12:33,529
+signal
+
